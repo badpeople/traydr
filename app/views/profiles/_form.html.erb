@@ -1,0 +1,38 @@
+<% form_for(@profile, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+
+        <%= render :partial => 'image', :object => @profile %>
+  <p>
+    <%= f.label :personal_blurb %><br />
+    <%= f.text_area :personal_blurb %>
+  </p>
+  <p>
+    <%= f.label :blog %><br />
+    <%= f.text_field :blog %>
+  </p>
+  <p>
+    <%= f.label :covestor %><br />
+    <%= f.text_field :covestor %>
+  </p>
+  <p>
+    <%= f.label :stocktwits %><br />
+    <%= f.text_field :stocktwits %>
+  </p>
+  <p>
+    <%= f.label :kaching %><br />
+    <%= f.text_field :kaching %>
+  </p>
+  <p>
+    <%= f.label :style_blurb %><br />
+    <%= f.text_area :style_blurb %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

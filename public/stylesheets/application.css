@@ -1,0 +1,285 @@
+body {
+    padding: 0;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+  margin: 0px;
+    height: 100%;
+
+
+}
+html
+{
+    height: 100%;
+}
+
+*
+{
+    margin: 0;
+
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+
+#flash_notice, #flash_error {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
+#container
+{
+	/*margin: 0 auto;*/
+    min-height: 100%;
+    height:  auto !important;
+	width: 100%;
+	background: #fff;
+    margin: 0 auto -4em;
+}
+
+#header
+{
+	background: #ccc;
+	padding: 10px;
+}
+
+#header h1 { margin: 0; }
+
+#navigation
+{
+	float: left;
+	width: 100%;
+	background: #333;
+}
+
+#navigation ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+#navigation ul li
+{
+	list-style-type: none;
+	display: inline;
+}
+
+#navigation li a
+{
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	color: #fff;
+	text-decoration: none;
+	border-right: 1px solid #fff;
+}
+
+#navigation li a:hover { background: #383; }
+
+#content
+{
+	clear: left;
+	padding: 20px;
+    padding-bottom: 4em;
+}
+
+#content h2
+{
+	color: #000;
+	font-size: 160%;
+	margin: 0 0 .5em;
+}
+
+#footer
+{
+	background: #ccc;
+	text-align: center;
+    width: 100%;
+    /*bottom:0px;*/
+    /*height:40px;*/
+    height: 4em;
+    position:relative;
+
+}
+
+#account_controls
+{
+    float: right;
+}
+
+#header_sitename
+{
+    font-size: 28px;
+    font-weight: bold;
+
+}
+
+.left-column
+{
+    float:left
+}
+.right-column
+{
+    float:right
+}
+
+.title
+{
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#profile-image
+{
+    float:left;
+
+}
+
+.profile-data
+{
+    margin-left: 10px;
+    float:left;
+}
+
+.small-preview-container
+{
+    margin-bottom: 20px
+}
+
+.preview-price
+{
+    float: right;
+}
+
+.preview-description
+{
+    /*float: left;*/
+    width: 80%;
+}
+.preview-name
+{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.small-username
+{
+    font-weight:bold;
+}
+
+#filter-controls
+{
+    display: inline;
+    float: left;
+}
+.small-preview-block {
+    width: 75%;
+    float: right;
+    clear: right;
+    margin-bottom: 15px;
+    display: inline;
+
+}
+.subtle
+{
+    color:lightgray;
+}
+
+.pagination
+{
+    float: right;
+    clear: right;
+    
+}
+
+.field-label
+{
+  vertical-align:top;  
+}
+
+
+#find-a-system
+{
+    width: 50%;
+
+    float: left;
+}
+#create-a-system
+{
+    width: 50%;
+    float: right;
+}
+
+.sub-title
+{
+    font-weight:bold;
+    font-size: 1.2em;
+}
+
+.title2
+{
+    font-size: 1.9em;
+}
+
+.sms-info
+{
+    color:darkorange;
+}

@@ -1,0 +1,24 @@
+<% title "Smsalert" %>
+
+<p>
+  <strong>System:</strong>
+  <%=h @smsalert.system_id %>
+</p>
+<p>
+  <strong>Message:</strong>
+  <%=h @smsalert.message %>
+</p>
+<p>
+  <strong>Send At:</strong>
+  <%=h @smsalert.send_at %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%=h @smsalert.status %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_smsalert_path(@smsalert) %> |
+  <%= link_to "Destroy", @smsalert, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", smsalerts_path %>
+</p>

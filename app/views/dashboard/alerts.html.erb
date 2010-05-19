@@ -1,0 +1,14 @@
+<div class="left-column">My recent email alerts
+<ul>
+  <% for emailalert in @emailalerts %>
+      <li>    <%= emailalert.title %>
+      </li>
+  <% end %></ul>
+                </div>
+<div class="right-column">My recent sms alerts
+<ul>
+  <% for smsalert in @smsalerts %>
+      <li> message: <%= smsalert.message %> <br/>
+      </li>
+  <% end %></ul>
+</div>

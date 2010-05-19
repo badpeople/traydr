@@ -1,0 +1,2 @@
+starling -d -P tmp/pids/starling.pid -q log/ -p 22122
+#starling -d -P tmp/pids/starling.pid -q log/ -p 12123

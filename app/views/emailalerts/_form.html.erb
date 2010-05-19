@@ -1,0 +1,23 @@
+<% form_for @emailalert do |f| %>
+  <%= f.error_messages %>
+  <p>
+   <input style="display:none;" name="emailalert[system_id]" value="<%= params[:system_id] %>"
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <input type="text" name="emailalert[title]" size="100" />
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :send_at %> (Eastern Standard Time)<br />
+    <%= f.datetime_select :send_at %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

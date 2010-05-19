@@ -1,0 +1,79 @@
+class SystemsController < ApplicationController
+  before_filter :login_required, :only=>[:new,:create,:mine]
+  before_filter :own_or_admin, :only=>[:edit,:update,:destroy]
+
+  def index
+    page = params[:page] || 1
+    if params[:filter] == "price-low-high"
+      @systems = System.paginate(:all,:order=>"price_email",:page=>page)
+    elsif params[:filter] == "price-high-low"
+      @systems = System.paginate(:all,:order=>"price_email DESC",:page=>page)
+    elsif params[:filter] == "only-free"
+      @systems = System.paginate(:all,:conditions=>{:price_email=>0},:page=>page)
+    elsif params[:filter] == "most-subscribers"
+
+        systems_by_subs = System.all
+        systems_by_subs.sort! { |a, b|
+          b.subscriptions.size() <=> a.subscriptions.size()
+        }
+      @systems = systems_by_subs.paginate(:page=> page, :per_page=>System.per_page )
+     
+    else
+      @systems = System.paginate(:all,:page=>page)
+    end
+    logger.debug "done with systems query"
+
+  end
+  
+  def show
+    @system = System.find(params[:id])
+  end
+  
+  def new
+    @system = System.new
+  end
+  
+  def create
+    @system = System.new(params[:system])
+    @system.user = current_user
+    if @system.save
+      flash[:notice] = "Successfully created system."
+      redirect_to @system
+    else
+      render :action => 'new'
+    end
+  end
+  
+  def edit
+    @system = System.find(params[:id])
+  end
+  
+  def update
+    @system = System.find(params[:id])
+    if @system.update_attributes(params[:system])
+      flash[:notice] = "Successfully updated system."
+      redirect_to @system
+    else
+      render :action => 'edit'
+    end
+  end
+  
+  def destroy
+    @system = System.find(params[:id])
+    @system.destroy
+    flash[:notice] = "Successfully destroyed system."
+    redirect_to systems_url
+  end
+
+  def get_model
+    return System
+  end
+
+  def mine
+    @systems = System.find_by_user(current_user)
+  end
+
+  def adminster
+    @system = System.find(params[:id])
+  end
+end

@@ -1,0 +1,18 @@
+<% title "Systems" %>
+
+These are all the systems that you can subscribe to.  Use the filter controllers to find ones that work for you.
+<br />
+<br />
+<div id="filter-controls">
+  <%= link_to "Price: Lowest to Highest",:action=>"index",:filter=>"price-low-high" %><br />
+  <%= link_to "Price: Highest to Lowest",:action=>"index",:filter=>"price-high-low" %> <br />
+  <%= link_to "Most subscribers",:action=>"index",:filter=>"most-subscribers" %><br />
+  <%= link_to "Only Free",:action=>"index",:filter=>"only-free" %><br />
+  <%= link_to "All",:action=>"index" %>
+</div>
+<div class="systems-container">
+<% for system in @systems %>
+    <%= render :partial=> "small_preview", :object=>system %>
+<% end %></div>
+<%= will_paginate @systems %>
+

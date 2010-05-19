@@ -1,0 +1,19 @@
+one:
+  first_name: MyString
+  last_name: MyString
+  personal_blurb: MyText
+  blog: MyString
+  covestor: MyString
+  stocktwits: MyString
+  kaching: MyString
+  style_blurb: MyText
+
+two:
+  first_name: MyString
+  last_name: MyString
+  personal_blurb: MyText
+  blog: MyString
+  covestor: MyString
+  stocktwits: MyString
+  kaching: MyString
+  style_blurb: MyText

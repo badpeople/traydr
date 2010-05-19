@@ -1,0 +1,26 @@
+<% form_for @subscription do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <input style="display:none;" name="subscription[system_id]" value="<%= @system.id %>"
+  </p>
+
+    <table>
+      <tr>
+        <td><%= f.label :to_email %></td>
+        <td align="right"><%= f.text_field :to_email %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :to_sms %></td>
+        <td><span class="sms-info">coming soon!</span>
+          <%= f.text_field :to_sms, :disabled=>"true", :class=>"sms-input" %></td>
+      </tr>
+      <tr>
+        <td>
+
+        </td>
+        <td>
+          <%= f.submit "Save" %>
+        </td>
+      </tr>
+    </table>
+<% end %>

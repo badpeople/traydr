@@ -1,0 +1,28 @@
+<% title "Emailalert" %>
+
+<p>
+  <strong>System:</strong>
+  <%=h @emailalert.system.name %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%=h @emailalert.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%=h @emailalert.body %>
+</p>
+<p>
+  <strong>Send At:</strong>
+  <%=h format_datetime(@emailalert.send_at )%>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%=h @emailalert.status %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_emailalert_path(@emailalert) %> |
+  <%= link_to "Destroy", @emailalert, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", emailalerts_path %>
+</p>

@@ -1,0 +1,22 @@
+<% title "Subscription to #{@subscription.system.name}" %>
+
+<p>
+  <strong>Creator:</strong>
+  <%=link_to @subscription.system.user.username,:controller=>"profiles",:action=>"show",:id=>@subscription.system.user.profile.id  %>
+</p>
+
+<p>
+  <strong>System:</strong>
+  <%= link_to @subscription.system.name,:controller=>"systems",:action=>"show",:id=>@subscription.system %>
+</p>
+<p>
+  <strong>To Email:</strong>
+  <%=h @subscription.to_email %>
+</p>
+
+
+<p>
+  <%= link_to "Edit", edit_subscription_path(@subscription) %> |
+  <%= link_to "Unsubscribe", @subscription, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View all my subscriptions", subscriptions_path %>
+</p>

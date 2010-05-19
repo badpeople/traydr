@@ -1,0 +1,11 @@
+<span class="title2">Edit your subscription for <b><%= @system.name %></b>  from   <b><%= @system.user.username %></b></span>
+<br />
+<br />
+
+
+<%= render :partial => 'form' %>
+
+<p>
+ 
+  <%= link_to "View All my subscriptions", subscriptions_path %>
+</p>

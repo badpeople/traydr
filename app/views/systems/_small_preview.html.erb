@@ -1,0 +1,14 @@
+<% system = small_preview %>
+
+  <div class="small-preview-block"><span class="preview-name"><%= system.name %></span>    <%= link_to "View it", :action=>"show", :id=>system %>
+    <span style="float:right">by:<span class="small-username"> <%= system.user.username %></span></span>
+
+    <div> 
+      <span class="preview-description" >   <%= excerpt(system.description, system.description[0..240], :radius=>2) %>
+      </span>
+      <span class="preview-price"><%= price_display(system.price_email) %><span class="subtle">/month</span>
+      </span>
+    </div>
+  </div>
+
+

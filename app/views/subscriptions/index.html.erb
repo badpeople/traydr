@@ -1,0 +1,36 @@
+<p class="sub-title">Systems you are subscribed to</p>
+
+<% if !@subscriptions.nil? and @subscriptions.size() > 0 then %>
+    <table>
+      <tr>
+        <th>System Name</th>
+        <th>Creator</th>
+        <th>To Email</th>
+        <th>Subscribed since</th>
+      </tr>
+      <% for subscription in @subscriptions %>
+        <tr>
+          <td><%=h subscription.system.name %></td>
+          <td><%=link_to subscription.system.user.username, :controller=>"profiles",:action=>"show",:id=>subscription.system.user.profile %></td>
+          <td><%=h subscription.to_email %></td>
+          <td><%=h format_date(subscription.updated_at) %></td>
+
+          <td><%= link_to "Edit", :action=>'edit',:id=>subscription %></td>
+          <td><%= link_to "View", :controller=>"systems",:action=>'show',:id=>subscription.system %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br />
+    <p><%= link_to "Subscribe to more systems", :controller=>'systems' %></p>
+
+    <% else %>
+
+    You aren't currently subscribed to any systems, find some <%= link_to "here...", :controller=>'systems' %>
+    <br /><br />
+<% end %>
+
+<br />
+
+<p> Do you have a trading system?  Create it on traydr
+  <%= link_to ' here... ', :controller=>'systems',:action=>'new' %>
+</p>

@@ -1,0 +1,45 @@
+<div>
+  <% title "#{@profile.first_name} #{@profile.last_name}" %>
+
+
+  <div id="profile-image">
+    <%= small_profile_image(@profile) %>
+
+  </div>
+  <div class="profile-data">
+    <div>
+
+    <p>
+      <strong>Personal Blurb:</strong>
+      <%= h @profile.personal_blurb %>
+    </p>
+
+    <p>
+      <strong>Blog:</strong>
+      <%= h @profile.blog %>
+    </p>
+
+    <p>
+      <strong>Covestor:</strong>
+      <%= h @profile.covestor %>
+    </p>
+
+    <p>
+      <strong>Stocktwits:</strong>
+      <%= h @profile.stocktwits %>
+    </p>
+
+    <p>
+      <strong>Kaching:</strong>
+      <%= h @profile.kaching %>
+    </p>
+
+    <p>
+      <strong>Style Blurb:</strong>
+      <%= h @profile.style_blurb %>
+    </p></div>
+  </div>
+  <p>
+   
+  </p>
+</div>

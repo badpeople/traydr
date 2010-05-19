@@ -1,0 +1,3 @@
+script/workling_client start -t & > log/workling.log
+script/workling_client start -t & > log/workling.log
+script/workling_client start -t & > log/workling.log

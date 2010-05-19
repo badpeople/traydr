@@ -1,0 +1,18 @@
+<p> Welcome, <%= @user.username %>, here is the dashboard</p>
+
+<p><%= link_to 'My Subscriptions',:controller=>'subscriptions' %></p>
+
+
+<br />
+<br />
+<br />
+<p>Systems I have created (<%= @systems.size() %>)</p>
+<% if @systems.size() > 0 then %>
+    <p>
+        <% for system in @systems %>
+            <%= link_to system.name, :controller=>'systems',:action=>'adminster', :id =>system %><br />
+      <% end %>
+    </p>
+<% else %>
+    <br />You currently haven't created any systems, would you like to <%= link_to "create one",:controller=>"systems",:action=>"new" %>?
+<% end %>

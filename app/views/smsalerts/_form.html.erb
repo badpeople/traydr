@@ -1,0 +1,18 @@
+<% form_for @smsalert do |f| %>
+  <%= f.error_messages %>
+    <p>
+   <input style="display:none;" name="smsalert[system_id]" value="<%= params[:system_id] %>"
+  </p>
+
+  <p>
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </p>
+  <p>
+    <%= f.label :send_at %><br />
+    <%= f.datetime_select :send_at %>
+  </p>
+  <p>
+  
+  <p><%= f.submit "Submit" %></p>
+<% end %>

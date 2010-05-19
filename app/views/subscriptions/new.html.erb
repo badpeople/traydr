@@ -1,0 +1,6 @@
+<% title "Subscribe to " + @system.name +
+         " from " + @system.user.username %>
+
+<%= render :partial => 'form' %>
+
+<p><%= link_to "Back to List", subscriptions_path %></p>

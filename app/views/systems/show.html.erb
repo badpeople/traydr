@@ -1,0 +1,18 @@
+<% title @system.name %>
+from <%= profile_link(@system.user) %>
+<br />
+<br />
+
+<p>
+  <strong>Description:</strong>
+  <%=h @system.description %>
+</p>
+<p>
+  <strong>Email Price:</strong>
+  <%=h price_display @system.price_email %>
+</p>
+
+
+<br />
+<br />
+<%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>

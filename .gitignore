@@ -1,0 +1,9 @@
+.idea
+.idea/**/*
+tmp
+tmp/**/*
+log/*.log
+log/*.pid
+log/*.output
+public/system
+public/images/profile/*

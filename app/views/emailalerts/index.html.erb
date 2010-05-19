@@ -1,0 +1,25 @@
+<% title "Emailalerts" %>
+
+<table>
+  <tr>
+    <th>System</th>
+    <th>Title</th>
+    <th>Body</th>
+    <th>Send At</th>
+    <th>Status</th>
+  </tr>
+  <% for emailalert in @emailalerts %>
+    <tr>
+      <td><%=h emailalert.system_id %></td>
+      <td><%=h emailalert.title %></td>
+      <td><%=h emailalert.body %></td>
+      <td><%=h emailalert.send_at %></td>
+      <td><%=h emailalert.status %></td>
+      <td><%= link_to "Show", emailalert %></td>
+      <td><%= link_to "Edit", edit_emailalert_path(emailalert) %></td>
+      <td><%= link_to "Destroy", emailalert, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Emailalert", new_emailalert_path %></p>

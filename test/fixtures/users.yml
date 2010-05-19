@@ -1,0 +1,18 @@
+# password: "secret"
+provider:
+  id: 1
+  username: provider
+  email: brower.paul@gmail.com
+  password_hash: 3488f5f7efecab14b91eb96169e5e1ee518a569f
+  password_salt: bef65e058905c379436d80d1a32e7374b139e7b0
+
+<% (2..12).each do |count| %>
+
+consumer<%= count %>:
+  id: <%= count %>
+  username: consumer<%= count %>
+  email: brower.paul+<%= count %>@gmail.com
+  password_hash: 3488f5f7efecab14b91eb96169e5e1ee518a569f
+  password_salt: bef65e058905c379436d80d1a32e7374b139e7b0
+
+<% end %>
