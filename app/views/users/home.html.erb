@@ -1,18 +1,27 @@
-<p> Welcome, <%= @user.username %>, here is the dashboard</p>
-
-<p><%= link_to 'My Subscriptions',:controller=>'subscriptions' %></p>
+<div style="float:left;width:75%"><p> Welcome to the dashboard, <%= @user.username %></p>
 
 
-<br />
-<br />
-<br />
-<p>Systems I have created (<%= @systems.size() %>)</p>
-<% if @systems.size() > 0 then %>
-    <p>
+  <p><%= link_to 'My Subscriptions', :controller=>'subscriptions' %></p>
+
+
+  <br/>
+  <br/>
+  <br/>
+
+  <p>Systems I have created (<%= @systems.size() %>)</p>
+  <% if @systems.size() > 0 then %>
+      <p>
         <% for system in @systems %>
-            <%= link_to system.name, :controller=>'systems',:action=>'adminster', :id =>system %><br />
-      <% end %>
-    </p>
-<% else %>
-    <br />You currently haven't created any systems, would you like to <%= link_to "create one",:controller=>"systems",:action=>"new" %>?
-<% end %>
+            <%= link_to system.name, :controller=>'systems', :action=>'adminster', :id =>system %><br/>
+        <% end %>
+      </p>
+  <% else %>
+      <br/>You currently haven't created any systems, would you like
+      to <%= link_to "create one", :controller=>"systems", :action=>"new" %>?
+  <% end %>
+</div>
+<div style="float:right;width:25%;">
+  <%= link_to "Edit my Account settings",:controller=>"users",:action=>"edit",:id=>@user.id %> <br />
+  <%= link_to "View my About me page",:controller=>"profiles",:action=>"show",:id=>@user.profile.id %> <br />
+  <%= link_to "Edit my About me page",:controller=>"profiles",:action=>"edit",:id=>@user.profile.id %>
+</div>

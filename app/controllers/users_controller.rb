@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 #  before_filter :login_required, :only=>[:new,:create]
-  before_filter :own_or_admin, :only=>[:edit,:update,:destroy]
+#  before_filter :own_or_admin, :only=>[:edit,:update,:destroy]
 
   def index
     @users = User.find(:all)
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def home
     if logged_in?
-      @user = User.find(session[:user_id])
+      @user = current_user
       @systems = System.find_all_by_user_id(current_user.id)
     else
       redirect_to "/welcome"
@@ -50,6 +50,20 @@ class UsersController < ApplicationController
 
   def get_model
     return User
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Successfully updated."
+      redirect_to :action=>"home"
+    else
+      render :action => 'edit'
+    end
   end
   
 end

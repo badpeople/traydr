@@ -8,6 +8,7 @@ class ProfilesController < ApplicationController
   
   def show
     @profile = Profile.find(params[:id])
+    @systems = @profile.user.systems
   end
   
   def new
@@ -16,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def show_by_user
     @profile = Profile.find_by_user_id(params[:id])
+    @systems = @profile.user.systems
     render "show"
   end
 
@@ -36,17 +38,17 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-    @profile = Profile.find_by_user_id(params[:id])
+    @profile = Profile.find(params[:id])
   end
   
   def update
     @profile = Profile.find(params[:id])
     if @profile.update_attributes(params[:profile])
       if params[:picture]
-        params[:picture][:id] = @product.id
+        params[:picture][:id] = @profile.id
         reps = save_picture
       end
-      flash[:notice] = "The product was successfully edited #{reps}"
+      flash[:notice] = "The profile was successfully edited #{reps}"
       redirect_to @profile
     else
       render :action => 'edit'

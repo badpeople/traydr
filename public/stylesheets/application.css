@@ -190,12 +190,14 @@ a {
 
 #profile-image
 {
+    padding-right: 15px;
     float:left;
 
 }
 
 .profile-data
 {
+    padding-top: 15px;
     margin-left: 10px;
     float:left;
 }
@@ -282,4 +284,9 @@ a {
 .sms-info
 {
     color:darkorange;
+}
+
+.profile-title
+{
+    font-size: 2em;
 }
