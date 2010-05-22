@@ -9,7 +9,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 
   raw_config = File.read(RAILS_ROOT + "/config/app_config.yml")
-  APP_CONFIG = YAML.load(raw_config)[ENV['RAILS_ENV']].symbolize_keys
+  APP_CONFIG = YAML.load(raw_config)[RAILS_ENV]
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
