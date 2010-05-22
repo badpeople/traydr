@@ -10,6 +10,10 @@ Rails::Initializer.run do |config|
 
   raw_config = File.read(RAILS_ROOT + "/config/app_config.yml")
   APP_CONFIG = YAML.load(raw_config)[RAILS_ENV]
+
+  APP_CONFIG.each_pair do |k, v|
+    APP_CONFIG[k.to_sym] = v
+  end
   
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
