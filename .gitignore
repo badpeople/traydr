@@ -7,3 +7,5 @@ log/*.pid
 log/*.output
 public/system
 public/images/profile/*
+config/database.yaml
+config/app_config.yaml

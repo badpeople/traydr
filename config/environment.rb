@@ -7,6 +7,10 @@
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+
+  raw_config = File.read(RAILS_ROOT + "/config/app_config.yml")
+  APP_CONFIG = YAML.load(raw_config)[ENV['RAILS_ENV']].symbolize_keys
+  
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -41,19 +45,26 @@ Rails::Initializer.run do |config|
 #
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true;
+#  config.action_mailer.smtp_settings = {
+#          :address =>'mail.traydr.com',
+#          :port => 26,
+#          :domain =>  'traydr.com',
+#          :user_name => 'alert+traydr.com',
+#          :password =>  '(drz%1%X*Cwo',
+#          :authentication => :login
+#  }
+
   config.action_mailer.smtp_settings = {
-          :address =>'mail.traydr.com',
-          :port => 26,
-          :domain =>  'traydr.com',
-          :user_name => 'alert+traydr.com',
-          :password =>  '(drz%1%X*Cwo',
-          :authentication => :login
+          :address =>APP_CONFIG[:email_server_outgoing_hostname],
+          :port => APP_CONFIG[:email_server_outgoing_port],
+          :user_name => APP_CONFIG[:email_accounts_alert_un],
+          :password =>  APP_CONFIG[:email_accounts_alert_pw],
+          :authentication => :login 
   }
-  
+
   config.gem 'mislav-will_paginate',
     :lib => 'will_paginate',
     :source => 'http://gems.github.com'
-#  ActionMailer::Base.server_settings = {   :address =>APP_CONFIG[:email_server_outgoing_hostname],   :port => APP_CONFIG[:email_server_outgoing_port],   :user_name => APP_CONFIG[:email_accounts_alert_un],   :password =>  APP_CONFIG[:email_accounts_alert_pw],   :authentication => :plain }
 end
 
 Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
