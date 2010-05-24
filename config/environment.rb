@@ -8,7 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
-  raw_config = File.read(RAILS_ROOT + "/config/app_config.yml")
+  raw_config = File.read("/usr/local/traydr/conf/app_config.yml")
   APP_CONFIG = YAML.load(raw_config)[RAILS_ENV]
 
   APP_CONFIG.each_pair do |k, v|
@@ -58,9 +58,12 @@ Rails::Initializer.run do |config|
 #          :authentication => :login
 #  }
 
+  puts APP_CONFIG.to_yaml
+
   config.action_mailer.smtp_settings = {
           :address =>APP_CONFIG[:email_server_outgoing_hostname],
           :port => APP_CONFIG[:email_server_outgoing_port],
+          :domain => 'traydr.com',
           :user_name => APP_CONFIG[:email_accounts_alert_un],
           :password =>  APP_CONFIG[:email_accounts_alert_pw],
           :authentication => :login 
@@ -69,6 +72,8 @@ Rails::Initializer.run do |config|
   config.gem 'mislav-will_paginate',
     :lib => 'will_paginate',
     :source => 'http://gems.github.com'
+
+  config.database_configuration_file= "/usr/local/traydr/conf/database.yml"
 end
 
 Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
