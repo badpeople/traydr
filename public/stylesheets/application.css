@@ -257,16 +257,19 @@ a {
   vertical-align:top;  
 }
 
+.two-column-action
+{
+    border-style: dashed;
+}
 
 #find-a-system
 {
-    width: 50%;
-
+    width: 45%;
     float: left;
 }
 #create-a-system
 {
-    width: 50%;
+    width: 45%;
     float: right;
 }
 
@@ -288,5 +291,21 @@ a {
 
 .profile-title
 {
-    font-size: 2em;
+    font-size: 1.9em;
+}
+
+.content-title
+{
+    font-size: 1.9em;
+}
+
+.giant-link
+{
+    text-align: center;
+    font-size: 2.2em;
+}
+
+.inner-emph
+{
+    margin: 15px;
 }

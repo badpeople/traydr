@@ -1,24 +1,37 @@
-<p>Welcome to traydr.com.  Where you can follow the market makers</p>
+<p class="content-title">Welcome to traydr.com, where you can follow the market makers</p>
+
+<br />
+<p>It always helps to have the professionals at your disposal.  Here at traydr.com you get to see what those with experience are trading.  Receive emails, sms (coming soon), research from those in the know.  Know when they make a trade.  Get your trading up to the next level by watching those who are already there. </p>
+<br />
+
+<p class="content-title">How it works</p>
+<br/>
+<p>Find a system that suits you.  Equities, trend-following, value trading, commodities, ETFs and more; there is a system and strategy for everyone.  Subscribe to the system.  Receive emails, SMS (coming soon) when they make a trade or publish research.  It's that easy.</p>
+
+
 
 <br />
 
-<div id="find-a-system">
-  <span class="sub-title">Find a system to follow</span>
+<div class="two-column-action" id="find-a-system">
+  <div class="inner-emph"><span class="content-title">Find a system to follow</span>
   <br />
   <span>
     System range from market makers sending out top newsletters to free newsletters just starting out.
-  </span>                               <br />
+  </span>
+    <br />
+    <br />
 
-<span style="text-align:center;" >  <%= link_to "Start",:controller=>"systems" %>
-</span></div>
+<p class="giant-link" style="text-align:center;" >  <%= link_to "Start>",{:controller=>"systems" },{:style=>"text-decoration:none;"}%>
+</p></div></div>
 
-<div id="create-a-system" >
-  <br />
-  <span class="sub-title">Create a system to follow</span>
+<div class="two-column-action" id="create-a-system" >
+  <div class="inner-emph"><span class="content-title">Create a system to follow</span>
   <br />
   <span>
     Monetize your market knowledge and trading ability or just get your name out there with a free system
-  </span>                               <br />
+  </span>
+    <br />
+    <br />
 
-  <%= link_to "Start",:controller=>"systems",:action=>"new" %>
+  <p class="giant-link"><%= link_to "Start>",{:controller=>"systems",:action=>"new" },{:style=>"text-decoration:none;"}%></p></div>
 </div>

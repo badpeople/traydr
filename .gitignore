@@ -5,6 +5,7 @@ tmp/**/*
 log/*.log
 log/*.pid
 log/*.output
+log/mailings_workers__send_mailing
 public/system
 public/images/profile/*
 config/database.yaml

@@ -49,14 +49,6 @@ Rails::Initializer.run do |config|
 #
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true;
-#  config.action_mailer.smtp_settings = {
-#          :address =>'mail.traydr.com',
-#          :port => 26,
-#          :domain =>  'traydr.com',
-#          :user_name => 'alert+traydr.com',
-#          :password =>  '(drz%1%X*Cwo',
-#          :authentication => :login
-#  }
 
   puts APP_CONFIG.to_yaml
 
@@ -66,7 +58,7 @@ Rails::Initializer.run do |config|
           :domain => 'traydr.com',
           :user_name => APP_CONFIG[:email_accounts_alert_un],
           :password =>  APP_CONFIG[:email_accounts_alert_pw],
-          :authentication => :login 
+          :authentication => :login
   }
 
   config.gem 'mislav-will_paginate',
