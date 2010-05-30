@@ -3,21 +3,21 @@
     <table>
       <tr>
         <td><%= f.label :name %></td>
-        <td><%= f.text_field :name %></td>
+        <td><%= f.text_field :name %></td><td class="field-explanation">(ex., "Value Plays","Emergent Biotech Equities", "Seasonal Commidities")</td>
       </tr>
       <tr>
         <td class="field-label"><%= f.label :description %></td>
-        <td><%= f.text_area :description %></td>
+        <td><%= f.text_area :description %></td>  <td class="field-explanation">(as long as you want.  Be sure to describe how often you will be sending messages.  What these messages contain.  Is this a nightly watchlist?  Are your messages time sensitive?  How long has the system been in use by you and what kind of returns have you seen?)</td>
       </tr>
 
       <tr>
-        <td>      <%= f.label :price_email %>
+        <td>    <label for="system_price_email">Email Price</label>
         </td>
-        <td>   <%= f.text_field :price_email %></td>
+        <td>   <%= f.text_field :price_email,{:disabled=>true} %></td><td class="field-explanation"> (payment system will be up and running soon and created systems can be later be modified)</td>
       </tr>
       <tr>
-        <td><%= f.label :price_sms %></td>
-        <td><%= f.text_field :price_sms %></td>
+        <td><label for="system_price_sms">SMS Price</label></td>
+        <td><%= f.text_field :price_sms,{:disabled=>true} %></td>
       </tr>
     </table>
     <p><%= f.submit "Submit" %></p>

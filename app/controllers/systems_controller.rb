@@ -27,6 +27,7 @@ class SystemsController < ApplicationController
   
   def show
     @system = System.find(params[:id])
+    @content_for_title
   end
   
   def new
@@ -36,6 +37,8 @@ class SystemsController < ApplicationController
   def create
     @system = System.new(params[:system])
     @system.user = current_user
+    @system.price_email = 0
+    @system.price_sms = 0
     if @system.save
       flash[:notice] = "Successfully created system."
       redirect_to @system

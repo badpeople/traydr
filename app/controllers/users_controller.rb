@@ -25,6 +25,8 @@ class UsersController < ApplicationController
       #create a profile for each user
       profile = Profile.new
       profile.user = @user
+      profile.update_attributes("image_square" =>"/images/man_silhouette_square.png", "image_small" =>"/images/man_silhouette_small.png", "image_medium" => "/images/man_silhouette_medium.png", "image_original" => "/images/man_silhouette_orig.png")
+      
       if !profile.save
         flash[:error] = "Error creating profile"  
       end

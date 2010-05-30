@@ -10,32 +10,35 @@
 <div id="container">
   <div id="header">
     <span id="header_sitename">
-      Traydr.com
+      <%= image_tag("logo.png") %>
     </span>
+
+    <span id="navigation">
+        <ul>
+          <% if logged_in? then %>
+              <li><%= link_to 'Dashboard', :controller=>'users', :action=>'home' %></li>
+          <% else %>
+              <li><%= link_to 'Dashboard', :controller=>'signup' %></li>
+          <% end %>
+
+          <li><%= link_to 'Systems', :controller=>'systems' %></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+    </span>
+
 
     <span id="account_controls">
       <% if logged_in? %>
-          Welcome <%= h User.find(session[:user_id]).username %>! Not you?
-          <%= link_to "Log out", logout_path %>
+          Welcome <%= h User.find(session[:user_id]).username %>! <p> Not you?
+          <%= link_to "Log out", logout_path %></p>
       <% else %>
           <%= link_to "Sign up", signup_path %> or
           <%= link_to "log in", login_path %>.
       <% end %>
     </span>
   </div>
-  <div id="navigation">
-    <ul>
-      <% if logged_in? then %>
-          <li><%= link_to 'Dashboard', :controller=>'users', :action=>'home'%></li>
-      <% else %>
-          <li><%= link_to 'Dashboard', :controller=>'signup' %></li>
-      <% end %>
+  <hr align="center"/>
 
-      <li><%= link_to 'Systems', :controller=>'systems' %></li>
-      <li><%= link_to 'Alerts', :controller=>'dashboard' ,:action=>'alerts'%></li>
-      <li><a href="#">Contact us</a></li>
-    </ul>
-  </div>
   <div id="content">
     <%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
@@ -46,11 +49,11 @@
     <%- end -%>
 
     <%= yield %>
+    
   </div>
+
 </div>
 
-  <div id="footer">
-    Copyright � traydr.com, 2010
-  </div>
+
 </body>
 </html>

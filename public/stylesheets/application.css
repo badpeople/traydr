@@ -42,6 +42,17 @@ a {
   background-color: #CFC;
   border: solid 1px #6C6;
 }
+#flash-info {
+  background-color: lightskyblue;
+  border: solid 1px blue;
+  margin-bottom: 7px;
+  padding: 7px;
+}
+
+#flash-info-inner
+{
+    margin: 7px;
+}
 
 #flash_error {
   background-color: #FCC;
@@ -98,17 +109,22 @@ a {
 
 #header
 {
-	background: #ccc;
-	padding: 10px;
+	background: white;
+	/*padding: 10px;*/
 }
 
+#header_sitename
+{
+    float:left;
+}
 #header h1 { margin: 0; }
 
 #navigation
 {
+    margin-top: 28px;
 	float: left;
-	width: 100%;
-	background: #333;
+    font-size: 2em;
+	/*width: 100%;*/
 }
 
 #navigation ul
@@ -128,12 +144,14 @@ a {
 	display: block;
 	float: left;
 	padding: 5px 10px;
-	color: #fff;
+	color: darkgreen;
 	text-decoration: none;
 	border-right: 1px solid #fff;
 }
 
-#navigation li a:hover { background: #383; }
+#navigation li a:hover {
+    background: lightgray; 
+}
 
 #content
 {
@@ -163,15 +181,12 @@ a {
 
 #account_controls
 {
+    /*vertical-align:middle;*/
     float: right;
+    margin-top: 28px;
+    margin-right: 9px;
 }
 
-#header_sitename
-{
-    font-size: 28px;
-    font-weight: bold;
-
-}
 
 .left-column
 {
@@ -308,4 +323,21 @@ a {
 .inner-emph
 {
     margin: 15px;
+}
+
+.field-explanation
+{
+    vertical-align: top;
+    
+}
+
+hr
+{
+  /*border: 0;*/
+  /*margin-left: 20px;*/
+  /*margin-right: 20px;*/
+  width: 70%;
+  height: 5px;
+  background-color: #CCCC00;
+
 }

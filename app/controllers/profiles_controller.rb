@@ -26,9 +26,11 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(params[:profile])
     @profile.user = current_user
     if @profile.save
+
       if params[:picture]
         params[:picture][:id] = @profile.id
         reps = save_picture
+
       end
       flash[:notice] = "A new profile was successfully added #{reps}"
       redirect_to @profile
@@ -47,6 +49,10 @@ class ProfilesController < ApplicationController
       if params[:picture]
         params[:picture][:id] = @profile.id
         reps = save_picture
+      elsif @profile.image_original.nil?
+        #default the picture if nothing was sent and there was not already something there
+        @profile.update_attributes("image_square" =>"/images/man_silhouette_square.png", "image_small" =>"/images/man_silhouette_small.png", "image_medium" => "/images/man_silhouette_medium.png", "image_original" => "/images/man_silhouette_orig.png")
+
       end
       flash[:notice] = "The profile was successfully edited #{reps}"
       redirect_to @profile

@@ -1,4 +1,8 @@
-<% title @system.name %>
+<% if !current_user.nil? && current_user.id == @system.user.id then %>
+    <%= render :partial=>'/dashboard/info',:locals=>{:text=>"You are viewing your system.  Use the link in the address bar to publicize your system to the world."} %>
+<% end %>
+
+<h1><%= @system.name %></h1>
 from <%= profile_link(@system.user) %>
 <br />
 <br />
@@ -14,5 +18,7 @@ from <%= profile_link(@system.user) %>
 
 
 <br />
-<br />
-<%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>
+<br /><% if current_user.nil? || current_user.id != @system.user.id then %>
+    <%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>
+<% end %>
+

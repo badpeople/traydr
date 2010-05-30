@@ -1,6 +1,10 @@
+<% if !current_user.nil? && current_user.id == @profile.user.id then %>
+    <%= render :partial=>"/dashboard/info", :locals=>{:text=>("You are viewing your profile.  To edit it click " +link_to("here",:action=>"edit") ) } %>
+<% end %>
+
 <div>
   <div id="profile-image">
-    <%= small_profile_image(@profile) %>
+    <%= medium_profile_image(@profile) %>
       <p>
         Find me on:<br />
         

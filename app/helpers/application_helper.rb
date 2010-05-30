@@ -1,7 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def small_profile_image(profile)
-    return image_tag("profiles/#{profile.id}/#{profile.id}_small.jpg",:width=>180)
+  def medium_profile_image(profile)
+    if profile.image_medium.nil?
+      return image_tag("man_silhouette_medium.png",:width=>180)
+    end
+    return image_tag(profile.image_medium,:width=>180)
   end
 
   def profile_link(user)

@@ -9,6 +9,11 @@ These are all the systems that you can subscribe to.  Use the filter controllers
   <%= link_to "Most subscribers",:action=>"index",:filter=>"most-subscribers" %><br />
   <%= link_to "Only Free",:action=>"index",:filter=>"only-free" %><br />
   <%= link_to "All",:action=>"index" %>
+
+  <br/><br/>Or...<br/>
+
+  <%= link_to "Create your own!", :action=>"new" %>
+
 </div>
 <div class="systems-container">
 <% for system in @systems %>
