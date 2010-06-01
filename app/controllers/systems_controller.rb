@@ -27,7 +27,7 @@ class SystemsController < ApplicationController
   
   def show
     @system = System.find(params[:id])
-    @content_for_title
+    @content_for_title = @system.name
   end
   
   def new

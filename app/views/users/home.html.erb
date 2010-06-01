@@ -15,10 +15,11 @@
             <%= link_to system.name, :controller=>'systems', :action=>'adminster', :id =>system %><br/>
         <% end %>
       </p>
-  <% else %>
-      <br/>You currently haven't created any systems, would you like
-      to <%= link_to "create one", :controller=>"systems", :action=>"new" %>?
   <% end %>
+
+  <br />
+  Create a system 
+      <%= link_to "here.", :controller=>"systems", :action=>"new" %>
 </div>
 <div style="float:right;width:25%;">
   <%= link_to "Edit my Account settings",:controller=>"users",:action=>"edit",:id=>@user.id %> <br />

@@ -4,6 +4,7 @@ body {
   font-size: 14px;
   margin: 0px;
     height: 100%;
+    /*color:#525151;*/
 
 
 }
@@ -121,9 +122,9 @@ a {
 
 #navigation
 {
-    margin-top: 28px;
+    margin-top: 33px;
 	float: left;
-    font-size: 2em;
+    font-size: 1.8em;
 	/*width: 100%;*/
 }
 
@@ -336,7 +337,7 @@ hr
   /*border: 0;*/
   /*margin-left: 20px;*/
   /*margin-right: 20px;*/
-  width: 70%;
+  width: 520px;
   height: 5px;
   background-color: #CCCC00;
 

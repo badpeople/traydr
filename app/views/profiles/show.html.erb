@@ -8,25 +8,25 @@
       <p>
         Find me on:<br />
         
-        <% if !@profile.blog.nil? %>
+        <% if !isEmptyString?(@profile.blog) %>
            <span class="profile-link"><%= link_to "Blog",@profile.blog %></span>
         <% end %>
       </p>
 
     <p>
-      <% if !@profile.covestor.nil? %>
+      <% if !isEmptyString?(@profile.covestor) %>
           <span class="profile-link"><%= link_to "Covestor", @profile.covestor %></span>
       <% end %>
     </p>
 
     <p>
-      <% if !@profile.stocktwits.nil? %>
+      <% if !isEmptyString?(@profile.stocktwits)%>
           <span class="profile-link"><%= link_to "StockTwits", @profile.stocktwits %></span>
       <% end %>
     </p>
 
     <p>
-      <% if !@profile.kaching.nil? %>
+      <% if !isEmptyString?(@profile.kaching) %>
           <span class="profile-link"><%= link_to "kaChing", @profile.kaching %></span>
       <% end %>
     </p>

@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :login_required
+#  before_filter :login_required
   def systems_alerts
      
   end
@@ -13,5 +13,10 @@ class DashboardController < ApplicationController
 
     @emailalerts = Emailalert.find_by_sql(sql_for_multiple_subscriptions(subscription_ids,Emailalert.table_name))
     @smsalerts = Smsalert.find_by_sql(sql_for_multiple_subscriptions(subscription_ids,Smsalert.table_name))
+  end
+
+  def contact
+    @content_for_title = "Contact"
+
   end
 end

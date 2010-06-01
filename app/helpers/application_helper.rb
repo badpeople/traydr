@@ -18,4 +18,10 @@ module ApplicationHelper
       number_to_currency(price)
     end
   end
+
+  def isEmptyString?(str)
+    return true unless !str.nil?
+    return true unless str.length > 0
+    false
+  end
 end
