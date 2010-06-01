@@ -21,6 +21,7 @@ class EmailalertsController < ApplicationController
   def create
     @emailalert = Emailalert.new(params[:emailalert])
     @emailalert.system = System.find(params[:emailalert][:system_id])
+    @emailalert.send_at = DateTime.now
     if @emailalert.save
       flash[:notice] = "Successfully created email alert."
       redirect_to @emailalert

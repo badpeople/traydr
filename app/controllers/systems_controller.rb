@@ -76,7 +76,7 @@ class SystemsController < ApplicationController
     @systems = System.find_by_user(current_user)
   end
 
-  def adminster
+  def administer
     @system = System.find(params[:id])
   end
 end

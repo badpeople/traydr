@@ -12,7 +12,7 @@
   <% if @systems.size() > 0 then %>
       <p>
         <% for system in @systems %>
-            <%= link_to system.name, :controller=>'systems', :action=>'adminster', :id =>system %><br/>
+            <%= link_to system.name, :controller=>'systems', :action=>'administer', :id =>system %><br/>
         <% end %>
       </p>
   <% end %>
