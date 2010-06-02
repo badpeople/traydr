@@ -1,1 +1,6 @@
 Welcome <%= @user.username %>, to traydr.com
+
+<br />
+<%= link_to "Click here to confirm your email.",:host=>@hostname,:controller=>"users",:action=>"confirm_email",:code=>@user.conf_code %>
+
+if you received this email in error.  Do not worry, just ignore it.

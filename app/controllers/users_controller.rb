@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-#  before_filter :login_required, :only=>[:new,:create]
+  before_filter :login_required, :only=>[:resend_confirmation]
 #  before_filter :own_or_admin, :only=>[:edit,:update,:destroy]
 
   def index
@@ -18,14 +18,15 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.conf_code = create_conf_code
+    @user.confirmed = false
     if @user.save
       UserMailer.deliver_registration_confirmation(@user)
       session[:user_id] = @user.id
-      flash[:notice] = "Thank you for signing up! You are now logged in."
+      flash[:notice] = "Thank you for signing up! You are now logged in. Your email must be confirmed for you to subscribe to a system.  Check your email (#{@user.email}).  Make sure it is not in your SPAM or junk folder.  Click on the link in the email to confirm your email."
       #create a profile for each user
       profile = Profile.new
       profile.user = @user
-      profile.update_attributes("image_square" =>"/images/man_silhouette_square.png", "image_small" =>"/images/man_silhouette_small.png", "image_medium" => "/images/man_silhouette_medium.png", "image_original" => "/images/man_silhouette_orig.png")
       
       if !profile.save
         flash[:error] = "Error creating profile"  
@@ -41,6 +42,7 @@ class UsersController < ApplicationController
     if logged_in?
       @user = current_user
       @systems = System.find_all_by_user_id(current_user.id)
+      @content_for_title = "Dashboard"
     else
       redirect_to "/welcome"
     end
@@ -67,5 +69,25 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
+  def resend_confirmation
+    UserMailer.deliver_registration_confirmation(current_user)
+    flash[:notice] = "A new confirmation email has been sent to \"#{current_user.email}\".  If you cannot find it, check your junk or spam folder."
+    redirect_to root_url
+  end
+
+  def confirm_email
+    code = params[:code]
+    @user = User.find_by_conf_code(code)
+    if !@user.nil?
+      @user.update_attributes(:confirmed=>true)
+      flash[:notice] = "Email confirmed."
+      session[:user_id] = @user.id
+      redirect_to root_url
+    else
+      flash[:error] = "Could not find user for that code."
+    end
+
+  end
+
 end

@@ -14,14 +14,20 @@ class SubscriptionsController < ApplicationController
   end
   
   def new
-    @subscription = Subscription.new
-    system_id = params[:system]
-    # check to see if this user already has a subscription to this system
-    already_subscribed = Subscription.find(:first,:conditions=>"system_id = #{system_id} AND user_id = #{current_user.id}")
-    if !already_subscribed.nil?
-      redirect_to :action=>"edit",:id=>already_subscribed.id
+    if current_user_confirmed?
+      @user = current_user
+      @subscription = Subscription.new
+      system_id = params[:system]
+      # check to see if this user already has a subscription to this system
+      already_subscribed = Subscription.find(:first,:conditions=>"system_id = #{system_id} AND user_id = #{current_user.id}")
+      if !already_subscribed.nil?
+        redirect_to :action=>"edit",:id=>already_subscribed.id
+      end
+      @system = System.find(system_id)
+    else
+      flash[:error] = "You must confirm your email before subscribing to a system.  If you can't find your confirmation email, <a href=\"/resend\">click here</a> to get it resent."
+      redirect_to :back
     end
-    @system = System.find(system_id)
 
   end
   
@@ -30,6 +36,7 @@ class SubscriptionsController < ApplicationController
     @subscription.status = "CONFIRMED"
     @subscription.system_id = nil
     @subscription.user = current_user
+    @subscription.to_email = current_user.email
     @subscription.system = System.find(params[:subscription][:system_id])
     if @subscription.save
       flash[:notice] = "Successfully created subscription."
@@ -42,6 +49,7 @@ class SubscriptionsController < ApplicationController
   def edit
     @subscription = Subscription.find(params[:id])
     @system = @subscription.system
+    @user = current_user
   end
   
   def update

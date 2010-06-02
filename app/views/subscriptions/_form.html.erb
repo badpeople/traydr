@@ -3,11 +3,12 @@
   <p>
     <input style="display:none;" name="subscription[system_id]" value="<%= @system.id %>"
   </p>
+    <br />
 
     <table>
       <tr>
         <td><%= f.label :to_email %></td>
-        <td align="right"><%= f.text_field :to_email %></td>
+        <td align="right"><%= f.text_field :to_email,:value=>@user.email,:disabled=>"true"  %></td>
       </tr>
       <tr>
         <td><%= f.label :to_sms %></td>
@@ -18,8 +19,8 @@
         <td>
 
         </td>
-        <td>
-          <%= f.submit "Save" %>
+        <td align="right">
+          <%= f.submit "Subscribe" %>
         </td>
       </tr>
     </table>

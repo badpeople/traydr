@@ -63,4 +63,8 @@ module Authentication
   def store_target_location
     session[:return_to] = request.request_uri
   end
+
+  def current_user_confirmed?
+    return logged_in? && current_user.confirmed
+  end
 end

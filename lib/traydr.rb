@@ -27,10 +27,19 @@ module Traydr
     return resp
   end
 
+
+  def range_rand(min, max)
+    min + rand(max-min)
+  end
+
 #  def log_error(msg, e)
 #    logger.error msg
 #    logger.error e.to_s
 #    logger.error e.backtrace
 #  end
+
+  def create_conf_code
+    range_rand(100000000,999999999)
+  end
 end
 

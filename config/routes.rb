@@ -17,6 +17,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :users
 
+  map.confirm 'confirm',:controller=> 'users',:action =>'confirm_email'
+  map.confirm 'resend',:controller=> 'users',:action =>'resend_confirmation'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

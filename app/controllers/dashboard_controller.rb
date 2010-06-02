@@ -19,4 +19,12 @@ class DashboardController < ApplicationController
     @content_for_title = "Contact"
 
   end
+
+  def unconfirmed
+    if logged_in?
+      @user = current_user
+    else
+      redirect_to root_url
+    end
+  end
 end
