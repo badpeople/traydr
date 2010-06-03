@@ -1,0 +1,1 @@
+ALTER TABLE  `systems` ADD  `extra_count` INT NOT NULL DEFAULT  '0';

@@ -14,7 +14,7 @@ class SystemsController < ApplicationController
 
         systems_by_subs = System.all
         systems_by_subs.sort! { |a, b|
-          b.subscriptions.size() <=> a.subscriptions.size()
+          b.subscription_count() <=> a.subscription_count()
         }
       @systems = systems_by_subs.paginate(:page=> page, :per_page=>System.per_page )
      

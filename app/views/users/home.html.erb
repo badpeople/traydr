@@ -1,15 +1,17 @@
-<div style="float:left;width:75%"><p> Welcome to the dashboard, <%= @user.username %></p>
+<div style="float:left;width:75%"><p style="font-size:1.3em;font-weight:bold;"> Welcome to the dashboard, <%= @user.username %></p>
 
 
-  <p><%= link_to 'My Subscriptions', :controller=>'subscriptions' %></p>
+  <p class="big-link"><%= link_to 'View my followed systems', :controller=>'subscriptions' %></p>
+  <p class="big-link"><%= link_to 'Find a system to follow', :controller=>'systems' %></p>
 
 
   <br/>
   <br/>
   <br/>
 
-  <p>Systems I have created (<%= @systems.size() %>)</p>
   <% if @systems.size() > 0 then %>
+      <p>Systems I have created (<%= @systems.size() %>)</p>
+      
       <p>
         <% for system in @systems %>
             <%= link_to system.name, :controller=>'systems', :action=>'administer', :id =>system %><br/>

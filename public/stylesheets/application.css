@@ -343,3 +343,18 @@ hr
   background-color: #CCCC00;
 
 }
+
+.faq-question
+{
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    
+    font-size: 1.3em;    
+}
+
+.big-link
+{
+    margin-top: 10px;
+    font-size: 1.2em;
+}
