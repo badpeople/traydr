@@ -29,6 +29,6 @@ class DashboardController < ApplicationController
   end
 
   def faq
-
+     @content_for_title = "frequently asked questions"
   end
 end
