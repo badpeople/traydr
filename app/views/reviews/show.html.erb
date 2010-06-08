@@ -1,0 +1,18 @@
+<p class="title">Review of <%= @review.subscription.system.user.username %>'s "<%= link_to @review.subscription.system.name,:controller=>"systems",:action=>"show",:id=>@review.subscription.system %>" system</p>
+
+<br />
+<br />
+<p>
+  <strong><%= @review.subscription.user.username %> says:</strong><br/>
+
+  <%= render :partial=>"/reviews/star_rating",  :locals=>{:rating=>@review.primary_rating} %>
+<br />
+  <span class="oversize">"</span><%=h @review.text %><span class="oversize">"</span>
+</p>
+
+<p>
+  <% if !@current_user.nil? && @current_user.id = @review.subscription.user.id %>
+    <%= link_to "Edit", edit_review_path(@review) %>
+  <% end %>
+
+</p>

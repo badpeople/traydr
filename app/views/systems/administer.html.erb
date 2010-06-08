@@ -3,7 +3,12 @@
 <br />
 
 Create Alerts:  
-<%= link_to 'Email',:controller=>'emailalerts',:action=>'new',:system_id=>@system.id %>   
+<%= link_to 'Email',:controller=>'emailalerts',:action=>'new',:system_id=>@system.id %>
+
+<br />
+<br />
+
+<%= link_to "Edit this system",:action=>"edit",:id=>@system %>
 
 
 <br />

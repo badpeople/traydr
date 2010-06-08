@@ -2,23 +2,42 @@
     <%= render :partial=>'/dashboard/info',:locals=>{:text=>"You are viewing your system.  Use the link in the address bar to publicize your system to the world."} %>
 <% end %>
 
-<h1><%= @system.name %></h1>
+<p class="title"><%= @system.name %> <% if !@average_rating.nil? then %>
+    <%= render :partial=>"reviews/star_rating",:locals=>{:rating=>@average_rating,:size=>"small-img"} %>
+<% end %>
+  </p>
+
 from <%= profile_link(@system.user) %>
+
+
+<span class="giant-link" style="text-decoration:none;float:right;margin-right:20px;">
+  <% if current_user.nil? || current_user.id != @system.user.id then %>
+    <%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>
+    <% end %>
+</span>
+
 <br />
 <br />
 
 <p>
-  <strong>Description:</strong>
-  <%=h @system.description %>       
+  <strong>Description:</strong> <br /><br />
+  <%= content_tag(:span, @system.description )%>       
 </p>
 <p>
   <strong>Email Price:</strong>
   <%=h price_display @system.price_email %>
 </p>
 
+<hr class="review-seperate">
+<p style="font-size:1.2em;" align="center"><%= @reviews.size() %> Reviews for <%= @system.name %></p>
+<br />
+
+<%= render :partial=>"/reviews/medium", :collection=>@reviews %>
+
 
 <br />
-<br /><% if current_user.nil? || current_user.id != @system.user.id then %>
-    <%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>
-<% end %>
+<br />
+
+
+
 

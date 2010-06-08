@@ -358,3 +358,23 @@ hr
     margin-top: 10px;
     font-size: 1.2em;
 }
+
+.oversize
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.review-seperate
+{
+    background-color: black;
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+
+}
+
+.small-img
+{
+    height:24px;
+}

@@ -24,4 +24,12 @@ module ApplicationHelper
     return true unless str.length > 0
     false
   end
+
+  def unhtmlify_description(description)
+    return description.gsub("<br />","\n")
+
+
+  end
+
+ 
 end

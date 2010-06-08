@@ -1,0 +1,23 @@
+<% form_for @review do |f| %>
+  <%= f.error_messages %>
+  <input type="hidden" style="display:none;" value="<%= params[:subscription] %>" name="review[subscription_id]" />
+
+  <p>
+    <table>
+      <tr><td>1 star</td><td><%= radio_button("review","primary_rating",1,:checked=>@review.primary_rating == 1) %></td><td> - not a great system.</td></tr>
+      <tr><td>2 stars</td><td><%= radio_button("review","primary_rating",2,:checked=>@review.primary_rating == 2) %></td><td> - very little value.</td></tr>
+      <tr><td>3 stars</td><td><%= radio_button("review","primary_rating",3,:checked=>@review.primary_rating == 3) %></td><td> - middle of the road.</td></tr>
+      <tr><td>4 stars</td><td><%= radio_button("review","primary_rating",4,:checked=>@review.primary_rating == 4) %></td><td> - pretty good system.</td></tr>
+      <tr><td>5 star</td><td><%= radio_button("review","primary_rating",5,:checked=>@review.primary_rating == 5) %></td><td> - a great system.</td></tr>
+
+    </table>
+  </p>
+
+  <br />
+
+  <p>
+    Your review<br />
+    <%= f.text_area :text, :cols=>80 %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

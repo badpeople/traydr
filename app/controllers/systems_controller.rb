@@ -28,6 +28,17 @@ class SystemsController < ApplicationController
   def show
     @system = System.find(params[:id])
     @content_for_title = @system.name
+
+    @reviews = Review.find_all_by_system_id(@system.id)
+
+    sum = 0;
+    if !@reviews.nil? && @reviews.size() > 0
+      for review in @reviews
+        sum += review.primary_rating
+      end
+      @average_rating = (sum / @reviews.size()).ceil
+    end
+
   end
   
   def new

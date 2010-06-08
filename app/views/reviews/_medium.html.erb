@@ -1,0 +1,11 @@
+<% review = medium %>
+
+<p>
+  <strong><%= review.subscription.user.username %> says:</strong><br/>
+
+  <%= render :partial=>"/reviews/star_rating",  :locals=>{:size=>"small-img",:rating=>review.primary_rating} %>
+<br />
+  <span class="oversize">"</span><%=h review.text %><span class="oversize">"</span>
+</p>
+<br />
+

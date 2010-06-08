@@ -1,0 +1,14 @@
+<%
+   size = "" unless !size.nil?
+%>
+<% if rating == 1 %>
+    <%= image_tag "gold_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %>
+<% elsif rating == 2 %>
+    <%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %>
+<% elsif rating == 3 %>
+    <%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %>
+<% elsif rating == 4 %>
+    <%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "empty_star.gif", :class=>size %>
+<% elsif rating == 5 %>
+    <%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %><%= image_tag "gold_star.gif", :class=>size %>
+<% end %>

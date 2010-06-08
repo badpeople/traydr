@@ -15,8 +15,9 @@
           <td><%=h subscription.to_email %></td>
           <td><%=h format_date(subscription.updated_at) %></td>
 
-          <td><%= link_to "Edit", :action=>'edit',:id=>subscription %></td>
-          <td><%= link_to "View", :controller=>"systems",:action=>'show',:id=>subscription.system %></td>
+          <td><%= link_to "Edit subscription", :action=>'edit',:id=>subscription %></td>
+          <td><%= link_to "View system", :controller=>"systems",:action=>'show',:id=>subscription.system %></td>
+          <td><%= link_to "Review it", :controller=>"reviews",:action=>'new',:subscription=>subscription %></td>
         </tr>
       <% end %>
     </table>
