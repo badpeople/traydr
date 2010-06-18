@@ -17,28 +17,28 @@ class SystemsController < ApplicationController
           b.subscription_count() <=> a.subscription_count()
         }
       @systems = systems_by_subs.paginate(:page=> page, :per_page=>System.per_page )
-     
-    else
-      @systems = System.paginate(:all,:page=>page)
+    else params[:filter] == "highest-rated"
+        systems_by_rating = System.all
+        systems_by_rating.sort! { |a, b|
+          b.average_rating() <=> a.average_rating()
+        }
+      @systems = systems_by_rating.paginate(:page=> page, :per_page=>System.per_page )
+
     end
-    logger.debug "done with systems query"
 
   end
   
   def show
     @system = System.find(params[:id])
     @content_for_title = @system.name
-
     @reviews = Review.find_all_by_system_id(@system.id)
 
-    sum = 0;
-    if !@reviews.nil? && @reviews.size() > 0
-      for review in @reviews
-        sum += review.primary_rating
-      end
-      @average_rating = (sum / @reviews.size()).ceil
+    if logged_in?
+      results = Subscription.find_by_sql(find_users_subscription(current_user.id,params[:id]))
+       if !results.nil? && results.size() > 0
+         @subscription = results[0]
+       end
     end
-
   end
   
   def new

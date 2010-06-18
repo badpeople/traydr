@@ -96,8 +96,8 @@ class SubscriptionsController < ApplicationController
 
 
   def order_completed
-    logger.debug "from paypal:\n"
-    logger.debug params.to_yaml
+    logger.info "from paypal:\n"
+    logger.info params.to_yaml
     post_text = request.raw_post
     logger.debug "raw post "
     logger.debug post_text
@@ -105,7 +105,7 @@ class SubscriptionsController < ApplicationController
     notify = Paypal::Notification.new(request.raw_post)
 
     if notify.acknowledge
-      logger.debug "PayPal acknowledged"
+      logger.info "PayPal acknowledged"
       # parse out the system, and the user, update the settings
       @system = System.find(params[:invoice])
       @user = User.find(params[:custom])
@@ -147,7 +147,6 @@ class SubscriptionsController < ApplicationController
     @subscription.system = System.find(params[:system_id])
     if @subscription.save then
       render :text=>"SUCCESS"
-
     else
       render :text=>"FAILURE"
     end

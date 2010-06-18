@@ -5,6 +5,7 @@ These are all the systems that you can subscribe to.  Use the filter controllers
 <br />
 <table><tr>
 <td id="filter-controls"><div  >
+  <%= link_to "Highest Rated",:action=>"index",:filter=>"highest-rated" %><br />
   <%= link_to "Price: Lowest to Highest",:action=>"index",:filter=>"price-low-high" %><br />
   <%= link_to "Price: Highest to Lowest",:action=>"index",:filter=>"price-high-low" %> <br />
   <%= link_to "Most subscribers",:action=>"index",:filter=>"most-subscribers" %><br />

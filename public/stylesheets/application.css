@@ -431,3 +431,8 @@ hr
     color: white;
     text-decoration:none;
 }
+
+.subscription-label
+{
+    font-weight:bold;
+}

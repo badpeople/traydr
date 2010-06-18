@@ -1,5 +1,5 @@
 <% if !current_user.nil? && current_user.id == @profile.user.id then %>
-    <%= render :partial=>"/dashboard/info", :locals=>{:text=>("You are viewing your profile.  To edit it click " +link_to("here",:action=>"edit") ) } %>
+    <%= render :partial=>"/dashboard/info", :locals=>{:text=>("You are viewing your profile.  To edit it click " +link_to("here",:id=>@profile,:action=>"edit") ) } %>
 <% end %>
 
 <div>
@@ -32,7 +32,7 @@
     </p>
 
   </div>
- <div style="width:75%;float:right;clear:right">
+ <div style="width:555px;float:right;clear:right">
    <div class="profile-title">
     <%= "#{@profile.first_name} #{@profile.last_name}" %>
   </div>

@@ -5,6 +5,8 @@
  <%= @body %>
  <br />
  <a href="<%= "http://#{@hostname}/subscriptions/show/#{@email_package[:subscription_id]}" %>">View this subscription</a><br />
- <a href="<%= "http://#{@hostname}/systems/show/#{@email_package[:system_id]}" %>">View this system</a>
+ <a href="<%= "http://#{@hostname}/systems/show/#{@email_package[:system_id]}" %>">View this system</a><br />
+ <a href="<%= "http://#{@hostname}/disclaimer" %>">Disclaimer</a>
+
  </body>
  </html>

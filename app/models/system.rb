@@ -27,7 +27,19 @@ class System < ActiveRecord::Base
     self.description =  description.gsub("\n","<br />")
   end
 
+  def average_rating
+    reviews = Review.find_all_by_system_id(self.id)
 
+    sum = 0
+    if !reviews.nil? && reviews.size() > 0
+      for review in reviews
+        sum += review.primary_rating
+      end
+      (sum / reviews.size()).ceil
+    else
+      0
+    end
+  end
 
 
 end

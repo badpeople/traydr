@@ -10,17 +10,17 @@
     <br />
 
       <tr class="subscription-row">
-        <td>Email</td>
+        <td><span class="subscription-label">Email</span></td>
         <td align="right"><%= f.text_field :to_email,:value=>@user.email,:disabled=>"true"  %></td>
       </tr>
       <tr class="subscription-row">
-        <td>SMS</td>
+        <td><span class="subscription-label">SMS</span></td>
         <td align="right"><span class="sms-info">coming soon!</span>
           <%= f.text_field :to_sms, :disabled=>"true", :class=>"sms-input" %></td>
       </tr>
       <tr class="subscription-row">
-        <td>Price</td>
-        <td  align="right"><%= price_display(@system.price_email) %></td>
+        <td><span class="subscriptions-label"><span class="subscription-label">Price</span></span></td>
+        <td  align="right"><%= price_display(@system.price_email) %> / month </td>
       </tr>
       <% if @system.price_email == 0 then %>
           <tr class="subscription-row">
@@ -28,7 +28,7 @@
             </td>
             <td align="right">
               <br />
-              <%= f.submit "Subscribe" %>
+              <%= f.submit "Done" %>
             </td>
           </tr>
 
@@ -36,8 +36,8 @@
       <tr class="subscription-row">
         <td>
           <% if @subscription.status != 'NEW' then %>
-              Status:
-          <% end %>
+<span class="subscription-label">              Status
+</span>          <% end %>
         </td>
         <td align="right">
           <% if @subscription.status == 'NEW' %>
