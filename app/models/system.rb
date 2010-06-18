@@ -5,9 +5,19 @@ class System < ActiveRecord::Base
   cattr_reader :per_page
   before_save :htmlify_description
 
+  @@per_page = 8
+
   has_many :reviews
 
-  @@per_page = 8
+  validates_numericality_of :price_email,:message=>"must be a number"
+  validates_length_of :name, :minimum => 3, :too_short => " must be at least {{count}} letters long."
+
+#  validate :must_be_friends
+#
+#  def must_be_friends
+#    errors.add_to_base("Must be friends to leave a comment") unless commenter.friend_of?(commentee)
+#  end
+
 
   def subscription_count
     return self.subscriptions.size() + self.extra_count

@@ -41,5 +41,20 @@ module Traydr
   def create_conf_code
     range_rand(100000000,999999999)
   end
+
+  def status_new
+    "NEW"
+  end
+  def status_confirmed
+    "CONFIRMED"
+  end
+  def status_unconfirmed
+    "UNCONFIRMED"
+  end
+
+
+  def find_users_subscription(user_id, system_id)
+    "select * from subscriptions where user_id = #{user_id} AND system_id = #{system_id}"
+  end
 end
 

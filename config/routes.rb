@@ -7,11 +7,14 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :emailalerts
 
-  map.resources :subscriptions
+  map.resources :subscriptions,:collection=>{:ajax_create=>[:get,:post],:order_completed =>[:get,:post],:order_done =>:get,:order_cancel=>:get} 
 
   map.resources :systems
 
   map.resources :profiles
+
+  map.contact 'contact', :controller => 'dashboard', :action => 'contact'
+  map.contact 'disclaimer', :controller => 'dashboard', :action => 'disclaimer'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.welcome 'welcome', :controller => 'users', :action => 'welcome'
@@ -23,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.confirm 'confirm',:controller=> 'users',:action =>'confirm_email'
   map.confirm 'resend',:controller=> 'users',:action =>'resend_confirmation'
+  map.faq 'faq',:controller=>'dashboard',:action=>'faq'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

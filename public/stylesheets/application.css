@@ -1,17 +1,14 @@
-body {
+html, body {
     padding: 0;
-  font-family: Verdana, Helvetica, Arial;
-  font-size: 14px;
-  margin: 0px;
+    font-family: Verdana, Helvetica, Arial;
+    font-size: 14px; /*margin: 0px;*/
+    height: 100%; /*color:#525151;*/
+    margin: 0;
+    padding: 0;
     height: 100%;
-    /*color:#525151;*/
-
 
 }
-html
-{
-    height: 100%;
-}
+
 
 *
 {
@@ -32,6 +29,59 @@ a {
   height: 0;
   overflow: hidden;
 }
+
+
+#content-inner
+{
+    padding-left:12px;
+    padding-right:12px;
+
+
+}
+
+#content
+{
+    /*height:100%;*/
+    margin-left:auto;
+    margin-right: auto;
+    padding-bottom: 24px;
+    padding-top: 24px;
+    width: 780px;
+    border-left: dotted;
+    border-right: dotted;
+    border-left-width:thin;
+    border-right-width:thin;
+
+
+}
+
+
+#container
+{
+    /*min-height: 100%;*/
+    /*position: relative;*/
+
+}
+
+#header {
+    background: #000;
+    border-bottom: 0.8em solid #006400;
+    color: #fff;
+    width: 100%;
+}
+
+#footer
+{
+    margin-right: auto;
+    margin-left:auto;
+	text-align: center;
+    clear: both;
+    padding-bottom:56px;
+    width: 780px;
+    height: 60px; /* Height of the footer */
+
+}
+
 
 
 #flash_notice, #flash_error {
@@ -98,21 +148,7 @@ a {
   list-style: disc;
 }
 
-#container
-{
-	/*margin: 0 auto;*/
-    min-height: 100%;
-    height:  auto !important;
-	width: 100%;
-	background: #fff;
-    margin: 0 auto -4em;
-}
 
-#header
-{
-	background: white;
-	/*padding: 10px;*/
-}
 
 #header_sitename
 {
@@ -122,44 +158,34 @@ a {
 
 #navigation
 {
-    margin-top: 33px;
-	float: left;
-    font-size: 1.8em;
+    /*margin-top: 33px;*/
+	/*float: left;*/
+    /*font-size: 1.8em;*/
 	/*width: 100%;*/
 }
 
-#navigation ul
+#navigation a
 {
 	margin: 0;
 	padding: 0;
 }
 
-#navigation ul li
-{
-	list-style-type: none;
-	display: inline;
-}
 
-#navigation li a
+#navigation a
 {
-	display: block;
-	float: left;
+	/*display: block;*/
+	/*float: left;*/
 	padding: 5px 10px;
-	color: darkgreen;
+	color: white;
 	text-decoration: none;
-	border-right: 1px solid #fff;
+    font-size: 1.4em;
+	/*border-right: 1px solid #fff;*/
 }
 
-#navigation li a:hover {
+#navigation a:hover {
     background: lightgray; 
 }
 
-#content
-{
-	clear: left;
-	padding: 20px;
-    padding-bottom: 4em;
-}
 
 #content h2
 {
@@ -168,21 +194,10 @@ a {
 	margin: 0 0 .5em;
 }
 
-#footer
-{
-	background: #ccc;
-	text-align: center;
-    width: 100%;
-    /*bottom:0px;*/
-    /*height:40px;*/
-    height: 4em;
-    position:relative;
-
-}
 
 #account_controls
 {
-    /*vertical-align:middle;*/
+    vertical-align:middle;
     float: right;
     margin-top: 28px;
     margin-right: 9px;
@@ -245,15 +260,13 @@ a {
 
 #filter-controls
 {
-    display: inline;
-    float: left;
+    vertical-align:top;
+    width:180px;
 }
 .small-preview-block {
-    width: 75%;
-    float: right;
-    clear: right;
+    width: 560px;
     margin-bottom: 15px;
-    display: inline;
+    padding-bottom: 20px;
 
 }
 .subtle
@@ -377,4 +390,44 @@ hr
 .small-img
 {
     height:24px;
+}
+
+.subscription-row > td
+{
+    padding-top: 8px;
+}
+
+#subscription-table
+{
+    padding-top: 12px;
+    margin-left: auto;
+    margin-right:auto;
+
+}
+
+
+.footer-content
+{
+    width: 100%;
+    color: whitesmoke;
+    font-size:1.2em;
+    padding-bottom: 24px;
+    background: gray;
+    -moz-border-radius-bottomleft: 30px;
+    -webkit-border-bottom-left-radius: 30px;
+    -moz-border-radius-bottomright: 30px;
+    -webkit-border-bottom-right-radius: 30px;
+}
+
+.systems-container
+{
+    float:left;
+}
+
+#logo a
+{
+    font: normal normal normal 5em/normal 'American Typewriter', 'Trebuchet MS', Verdana, sans-serif;
+    font-family: 'American Typewriter', 'Trebuchet MS', Verdana, sans-serif;
+    color: white;
+    text-decoration:none;
 }

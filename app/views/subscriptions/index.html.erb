@@ -1,22 +1,21 @@
-<p class="sub-title">Systems you are subscribed to</p>
+<p style="font-size:1.5em" class="sub-title">Systems you are subscribed to</p>
 
 <% if !@subscriptions.nil? and @subscriptions.size() > 0 then %>
     <table>
       <tr>
-        <th>System Name</th>
+        <th></th>
         <th>Creator</th>
         <th>To Email</th>
         <th>Subscribed since</th>
       </tr>
       <% for subscription in @subscriptions %>
         <tr>
-          <td><%=h subscription.system.name %></td>
+          <td><span style="font-size:1.4em"><%= link_to subscription.system.name, :controller=>"systems",:action=>"show",:id=>subscription.system %></span></td>
           <td><%=link_to subscription.system.user.username, :controller=>"profiles",:action=>"show",:id=>subscription.system.user.profile %></td>
           <td><%=h subscription.to_email %></td>
           <td><%=h format_date(subscription.updated_at) %></td>
 
           <td><%= link_to "Edit subscription", :action=>'edit',:id=>subscription %></td>
-          <td><%= link_to "View system", :controller=>"systems",:action=>'show',:id=>subscription.system %></td>
           <td><%= link_to "Review it", :controller=>"reviews",:action=>'new',:subscription=>subscription %></td>
         </tr>
       <% end %>

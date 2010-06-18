@@ -26,10 +26,23 @@ module ApplicationHelper
   end
 
   def unhtmlify_description(description)
-    return description.gsub("<br />","\n")
-
+    return description.gsub("<br />","\n") unless description.nil?
+    return ""
 
   end
 
- 
+  def paypal_price_format(price)
+    return number_to_currency(price,:precision=>2,:unit=>"",:delimiter=>"")
+  end
+
+
+  def status_new
+    "NEW"
+  end
+  def status_confirmed
+    "CONFIRMED"
+  end
+  def status_unconfirmed
+    "UNCONFIRMED"
+  end
 end

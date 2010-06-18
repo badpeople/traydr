@@ -49,7 +49,8 @@ class UsersController < ApplicationController
   end
 
   def welcome
-    
+    @content_for_title = "Welcome"
+
   end
 
   def get_model

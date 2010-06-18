@@ -4,6 +4,8 @@
 <head>
   <title>Traydr.com: <%= h(yield(:title) || "Untitled") %></title>
   <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'traydr' %>
+  <%= javascript_include_tag 'prototype' %>
   <%= yield(:head) %>
 </head>
 <body>
@@ -22,21 +24,24 @@
 </script>
 <div id="container">
   <div id="header">
-    <span id="header_sitename">
-      <a href="/welcome"><%= image_tag("logo.png",:width=>320) %></a>
+    <span id="logo">
+      <a href="/welcome">
+        Traydr.com
+      </a>
+
     </span>
 
+
     <span id="navigation">
-        <ul>
           <% if logged_in? then %>
-              <li><%= link_to 'Dashboard', :controller=>'users', :action=>'home' %></li>
+              <%= link_to 'Dashboard', :controller=>'users', :action=>'home' %>
           <% else %>
-              <li><%= link_to 'Dashboard', :controller=>'signup' %></li>
+              <%= link_to 'Dashboard', :controller=>'signup' %>
           <% end %>
 
-          <li><%= link_to 'Systems', :controller=>'systems' %></li>
-          <li><%= link_to 'Contact',:controller=>'dashboard',:action=>'contact' %></li>
-        </ul>
+          <%= link_to 'Systems', :controller=>'systems' %>
+          <%= link_to 'Contact','/contact' %>
+          <%= link_to 'FAQ','/faq' %>
     </span>
 
 
@@ -50,10 +55,10 @@
       <% end %>
     </span>
   </div>
-  <hr align="center"/>
+
 
   <div id="content">
-    <%- flash.each do |name, msg| -%>
+    <div id="content-inner"><%- flash.each do |name, msg| -%>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <%- end -%>
 
@@ -61,11 +66,21 @@
         <h1><%= h yield(:title) %></h1>
     <%- end -%>
 
-    <%= yield %>
-    
+    <%= yield %></div>
+  </div>
+
+  <div id="footer">
+    <br/>
+    <div class="footer-content">
+      <br/>
+      Copyright 2010 traydr.com
+<br />
+      <%= link_to "Contact", "/contact" %> | <%= link_to "FAQ", "/faq" %>        | <%= link_to "Disclaimer", "/disclaimer" %>
+      </div>
   </div>
 
 </div>
+
 
 
 </body>

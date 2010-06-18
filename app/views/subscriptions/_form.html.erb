@@ -1,3 +1,7 @@
+
+
+<table align="center" id="subscription-table">
+
 <% form_for @subscription do |f| %>
   <%= f.error_messages %>
   <p>
@@ -5,23 +9,90 @@
   </p>
     <br />
 
-    <table>
-      <tr>
-        <td><%= f.label :to_email %></td>
+      <tr class="subscription-row">
+        <td>Email</td>
         <td align="right"><%= f.text_field :to_email,:value=>@user.email,:disabled=>"true"  %></td>
       </tr>
-      <tr>
-        <td><%= f.label :to_sms %></td>
-        <td><span class="sms-info">coming soon!</span>
+      <tr class="subscription-row">
+        <td>SMS</td>
+        <td align="right"><span class="sms-info">coming soon!</span>
           <%= f.text_field :to_sms, :disabled=>"true", :class=>"sms-input" %></td>
       </tr>
-      <tr>
-        <td>
+      <tr class="subscription-row">
+        <td>Price</td>
+        <td  align="right"><%= price_display(@system.price_email) %></td>
+      </tr>
+      <% if @system.price_email == 0 then %>
+          <tr class="subscription-row">
+            <td>
+            </td>
+            <td align="right">
+              <br />
+              <%= f.submit "Subscribe" %>
+            </td>
+          </tr>
 
+      <% end %>
+      <tr class="subscription-row">
+        <td>
+          <% if @subscription.status != 'NEW' then %>
+              Status:
+          <% end %>
         </td>
         <td align="right">
-          <%= f.submit "Subscribe" %>
+          <% if @subscription.status == 'NEW' %>
+            <!-- do nothing -->
+          <% elsif @subscription.status == 'UNCONFIRMED'  %>
+              Unconfirmed, payment has not been received.<br/ >If you think this is in error,  <a href="/contact">contact us</a>
+          <% elsif @subscription.status == 'CONFIRMED'  %>
+              <% if @system.price_email == 0 then %>
+                  Confirmed, payment received.
+              <% else %>
+                  Confirmed
+              <% end %>
+          <% end %>
         </td>
       </tr>
-    </table>
+
+
+
 <% end %>
+
+  <% if @system.price_email > 0 && (@subscription.status == status_new || @subscription.status == status_unconfirmed    || @subscription.status == nil) then %>
+      <tr class="subscription-row">
+                <td></td>
+                <td>
+                  <div style="padding-left: 270px;padding-top: 24px;padding-bottom: 45px;">
+                    <form onclick="createUnverifiedSubscription(<%= @user.id %>,<%= @system.id %> );" action="https://<%= APP_CONFIG[:paypal_domain] %>/cgi-bin/webscr" method="post">
+                      <input type="hidden" name="cmd" value="_xclick-subscriptions">
+                      <input type="hidden" name="business" value="<%= APP_CONFIG[:paypal_merchant_id] %>">
+                      <input type="hidden" name="item_name" value="Subscription to <%= @system.user.username + '\'s : ' + @system.name %> at traydr.com">
+                      <!--<input type="hidden" name="item_number" value="123">-->
+                      <input type="hidden" name="no_shipping" value="1">
+                      <input type="hidden" name="return" value="http://<%= APP_CONFIG[:domain] %>/subscriptions/order_done/<%= @subscription.id %>">
+                      <input type="hidden" name="cancel_return" value="http://<%= APP_CONFIG[:domain] %>/subscriptions/order_cancel">
+                      <input type="hidden" name="a1" value="0">
+                      <input type="hidden" name="p1" value="1">
+                      <input type="hidden" name="t1" value="M">
+                      <input type="hidden" name="a3" value="<%= paypal_price_format(@system.price_email) %>">
+                      <input type="hidden" name="p3" value="1">
+                      <input type="hidden" name="t3" value="M">
+                      <input type="hidden" name="src" value="1">
+                      <input type="hidden" name="sra" value="1">
+                      <input type="hidden" name="srt" value="24">
+                      <input type="hidden" name="no_note" value="1">
+                      <input type="hidden" name="notify_url" value="http://<%= APP_CONFIG[:domain] %>/subscriptions/order_completed"
+                      <input type="hidden" name="custom" value="<%= @user.id %>">
+                      <input type="hidden" name="invoice" value="<%= @system.id %>">
+                      <!--<input type="hidden" name="usr_manage" value="1">-->
+                      <input type="image"
+                             src="<%= image_path("paypal_subscribe_btn.gif") %>
+        border="0" name="submit"
+                      alt="Make payments with PayPal - it’s fast, free and secure!">
+                    </form>
+                  </div>
+                </td>
+              </tr>
+  <% end %>
+</table>
+
