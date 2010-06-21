@@ -15,7 +15,8 @@ from <%= profile_link(@system.user) %>
 
 <span class="giant-link" style="text-decoration:none;float:right;margin-right:20px;">
   <% if current_user.nil? || current_user.id != @system.user.id && @subscription.nil? then %>
-    <%= link_to 'Subscribe', :controller=>'subscriptions', :action=>'new', :system=>@system.id %>
+
+      <span class="subscribe-button"><%= link_to '', :controller=>'subscriptions', :action=>'new', :system=>@system.id %></span>
   <% elsif !@subscription.nil? %>
       <%= link_to 'Edit Your Subscription', :controller=>'subscriptions', :action=>'edit', :id=>@subscription %>
       <br />

@@ -1,13 +1,24 @@
 <% system = small_preview %>
 
-  <div class="small-preview-block"><span class="preview-name"><%= system.name %></span>
+  <div class="small-preview-block">
+  <p>
+    <span class="preview-name">
+      <%= system.name %>
+    </span>
+    <span class="view-button">
+      <%= link_to "", {:action=>"show", :id=>system} %>
+    </span>
+        <span class="username-label">from </span><span class="small-username"> <%= system.user.username %></span>
+
+    <br/>
+  </p>
     <% average_rating = system.average_rating() %>
 
     <% if !average_rating.nil? then %>
       <%= render :partial=>"reviews/star_rating",:locals=>{:rating=>average_rating,:size=>"small-img"} %>
   <% end %>
-    (<%= system.subscription_count()%> subscribed)   <%= link_to "View it", :action=>"show", :id=>system %>
-    <span style="float:right">by:<span class="small-username"> <%= system.user.username %></span></span>
+<span class="subscriber-count">    (<%= system.subscription_count()%> subscribers)
+</span>
 
     <div> 
       <span class="preview-description" >   <%= excerpt(system.description, system.description[0..240], :radius=>2) %>
@@ -16,5 +27,7 @@
       </span>
     </div>
   </div>
+<div class="system-divider"><hr /></div>
+
 
 

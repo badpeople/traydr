@@ -1,0 +1,26 @@
+
+xml.instruct!
+xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
+  @entries.each do |entry|
+    xml.url do
+      xml.loc url_for(:controller => 'systems',
+                      :id => entry.id,
+                      :action => 'show',
+                      :only_path => false,
+                      :host=> APP_CONFIG[:domain])
+      xml.lastmod entry.updated_at.to_date
+    end
+  end
+
+  @profiles.each do |profile|
+    xml.url do
+      xml.loc url_for(:controller => 'profiles',
+                      :id => profile.id,
+                      :action => 'show',
+                      :only_path => false,
+                      :host=> APP_CONFIG[:domain])
+      xml.lastmod profile.updated_at.to_date
+    end
+  end
+
+end

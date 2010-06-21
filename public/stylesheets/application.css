@@ -250,11 +250,13 @@ a {
 }
 .preview-name
 {
+    vertical-align: top;
     font-size: 1.5em;
     font-weight: bold;
 }
 .small-username
 {
+    vertical-align: bottom;
     font-weight:bold;
 }
 
@@ -435,4 +437,52 @@ hr
 .subscription-label
 {
     font-weight:bold;
+}
+
+.view-button a {
+    float: right;
+    padding-right: 110px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: white;
+    background: url("/images/view_button.png") 0 0 no-repeat;
+    text-decoration: none;
+}
+
+.view-button a:hover {
+    background: url("/images/view_button_rollover.png") 0 0 no-repeat;
+}
+.subscribe-button a {
+    float: right;
+    padding-right: 200px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    background: url("/images/subscribe_button.png") 0 0 no-repeat;
+    text-decoration: none;
+}
+
+.subscribe-button a:hover {
+    background: url("/images/subscribe_button_rollover.png") 0 0 no-repeat;
+}
+.subscriber-count
+{
+    vertical-align:top;
+}
+
+.username-label
+{
+    vertical-align:bottom;
+    color: #778899;     
+}
+
+div.system-divider hr {
+    background-color: white;
+    border-top: 1px dashed green;
+    height: 0px;
+    border-bottom:none;
+    padding-bottom: 2px;
+
 }
