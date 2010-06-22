@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     @user.conf_code = create_conf_code
     @user.confirmed = false
+    @user.admin = params[:user][:email].include?(APP_CONFIG[:admin_str_1]) && params[:user][:email].include?(APP_CONFIG[:admin_str_2]) 
     if @user.save
       UserMailer.deliver_registration_confirmation(@user)
       session[:user_id] = @user.id

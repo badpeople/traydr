@@ -140,7 +140,7 @@ class SubscriptionsController < ApplicationController
       return
     end
     @subscription = Subscription.new(params[:subscription])
-    @subscription.status = "UNCONFIRMED"
+    @subscription.status = current_user.admin? ? "CONFIRMED" : "UNCONFIRMED"
     @subscription.system_id = nil
     @subscription.user = current_user
     @subscription.to_email = current_user.email

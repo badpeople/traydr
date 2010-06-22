@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :systems
   has_one :profile
   # new columns need to be added here to be writable through mass assignment
-  attr_accessible :username, :email, :password, :password_confirmation, :conf_code,:confirmed
+  attr_accessible :username, :email, :password, :password_confirmation, :conf_code,:confirmed,:admin
   
   attr_accessor :password
   before_save :prepare_password
@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   def matching_password?(pass)
     self.password_hash == encrypt_password(pass)
   end
+
+
+  def admin?
+    return self.admin
+  end
   
   private
   
@@ -37,4 +42,5 @@ class User < ActiveRecord::Base
   def encrypt_password(pass)
     Digest::SHA1.hexdigest([pass, password_salt].join)
   end
+
 end

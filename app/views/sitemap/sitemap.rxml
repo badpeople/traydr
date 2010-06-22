@@ -23,4 +23,21 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     end
   end
 
+  xml.url do
+    xml.loc "http://#{APP_CONFIG[:domain]}/welcome"
+    xml.lastmod DateTime.now.to_date
+    
+  end
+
+  xml.url do
+    xml.loc "http://#{APP_CONFIG[:domain]}/faq"
+    xml.lastmod DateTime.now.to_date
+
+  end
+
+  xml.url do
+    xml.loc "http://#{APP_CONFIG[:domain]}/contact"
+    xml.lastmod DateTime.now.to_date
+  end
+
 end

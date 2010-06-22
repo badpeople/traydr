@@ -1,0 +1,24 @@
+<h1>Systems</h1>
+<table border="1">
+
+<% for system in @systems %>
+
+      <tr>
+        <% form_for system do |f| %>
+            <%= f.error_messages %>
+
+            <td>        <%= system.id %>
+            </td>
+            <td>        <%= system.name %>
+            </td>
+            <td> Extra Count</td>
+            <td>
+              <%= f.text_field :extra_count %>
+              </td><td>
+              <%= f.submit "Submit", :style=>"display:inline;" %>
+            </td>
+
+        <% end %>
+      </tr>
+  <% end %>
+    </table>
