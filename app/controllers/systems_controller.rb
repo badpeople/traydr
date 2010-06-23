@@ -10,6 +10,10 @@ class SystemsController < ApplicationController
       @systems = System.paginate(:all,:order=>"price_email DESC",:page=>page)
     elsif params[:filter] == "only-free"
       @systems = System.paginate(:all,:conditions=>{:price_email=>0},:page=>page)
+    elsif params[:filter] == "newest"
+      @systems = System.paginate(:all,:order=>"created_at DESC",:page=>page)
+    elsif params[:filter] == "oldest"
+      @systems = System.paginate(:all,:order=>:created_at,:page=>page)
     elsif params[:filter] == "most-subscribers"
 
         systems_by_subs = System.all
@@ -48,7 +52,6 @@ class SystemsController < ApplicationController
   def create
     @system = System.new(params[:system])
     @system.user = current_user
-    @system.price_email = 0
     @system.price_sms = 0
     if @system.save
       flash[:notice] = "Successfully created system."

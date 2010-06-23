@@ -265,6 +265,13 @@ a {
     vertical-align:top;
     width:180px;
 }
+
+#filter-controls > div > div
+{
+    padding-top : 8px;
+    line-height: 1.2em;
+   
+}
 .small-preview-block {
     width: 560px;
     margin-bottom: 15px;
@@ -485,4 +492,16 @@ div.system-divider hr {
     border-bottom:none;
     padding-bottom: 2px;
 
+}
+
+.paginate-wrapper
+{
+    padding-top: 8px;
+    float: none;
+}
+
+.pagination
+{
+    font-size: 1.3em;
+    float: none;
 }

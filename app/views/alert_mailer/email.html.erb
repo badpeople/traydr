@@ -1,8 +1,25 @@
  <html>
- <body>Title: <%= @title %>
- <br />
- Message:
- <%= @body %>
+ <body>
+ <table align="center" width="90%" border="1">
+   <tr>
+     <td>
+       System: <%= link_to @email_package[:system_name],:controller=>"systems",:id=>@email_package[:system_id],:action=>"show",:host=>@hostname %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+       Title: <%= @title %>
+
+     </td>
+   </tr>
+   <tr>
+     <td>
+       <%= @body  %>
+
+     </td>
+   </tr>
+ </table>
+ 
  <br />
  <a href="<%= "http://#{@hostname}/subscriptions/show/#{@email_package[:subscription_id]}" %>">View this subscription</a><br />
  <a href="<%= "http://#{@hostname}/systems/show/#{@email_package[:system_id]}" %>">View this system</a><br />

@@ -5,25 +5,39 @@ These are all the systems that you can subscribe to.  Use the filter controllers
 <br />
 <table><tr>
 <td id="filter-controls"><div  >
-  <%= link_to "Highest Rated",:action=>"index",:filter=>"highest-rated" %><br />
-  <%= link_to "Price: Lowest to Highest",:action=>"index",:filter=>"price-low-high" %><br />
-  <%= link_to "Price: Highest to Lowest",:action=>"index",:filter=>"price-high-low" %> <br />
-  <%= link_to "Most subscribers",:action=>"index",:filter=>"most-subscribers" %><br />
-  <%= link_to "Only Free",:action=>"index",:filter=>"only-free" %><br />
-  <%= link_to "All",:action=>"index" %>
-
+<div>  <%= link_to "Highest Rated",:action=>"index",:filter=>"highest-rated" %><br />
+</div>
+<div>  <%= link_to "Price: Low to High",:action=>"index",:filter=>"price-low-high" %><br />
+</div>
+<div>  <%= link_to "Price: High to Low",:action=>"index",:filter=>"price-high-low" %> <br />
+</div>
+<div>  <%= link_to "Most subscribers",:action=>"index",:filter=>"most-subscribers" %><br />
+</div>
+<div>  <%= link_to "Newest",:action=>"index",:filter=>"newest" %><br />
+</div>
+<div>  <%= link_to "Oldest",:action=>"index",:filter=>"oldest" %><br />
+</div>
+<div>  <%= link_to "Only Free",:action=>"index",:filter=>"only-free" %><br />
+</div>
+<div>  <%= link_to "All",:action=>"index" %>
+</div>
   <br/><br/>Or...<br/>
 
   <%= link_to "Create your own!", :action=>"new" %>
 
 </div></td>
-<td><div >
+<td>
+  <div >
   <div class="system-divider"><hr /></div>
   
 <% for system in @systems %>
     <%= render :partial=> "small_preview", :object=>system %>
-<% end %></div>
-<%= will_paginate @systems %></td>
-    </tr>
+  <% end %>
+</div>
+  <div align="center" class="paginate-wrapper">
+    <%= will_paginate @systems %>
+  </div>
+</td>
+</tr>
     </table>
 
