@@ -39,7 +39,7 @@ class SubscriptionsController < ApplicationController
         @subscription.to_email = current_user.email
         @subscription.system = @system
         if @subscription.save
-          flash[:notice] = "Successfully created subscription."
+          flash[:notice] = "Successfully created subscription.  Remember, add \"alert@traydr.com\" to your email contacts.  As this will be the email that you receive alerts from." 
           redirect_to @system
         else
           render :action => 'new'

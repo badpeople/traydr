@@ -7,7 +7,7 @@
       </tr>
       <tr>
         <td class="field-label"><%= f.label :description %></td>
-        <td><textarea cols="40" id="system_description" name="system[description]" rows="20"><%= unhtmlify_description(@system.description) %></textarea></td>  <td class="field-explanation">(as long as you want.  Be sure to describe how often you will be sending messages.  What these messages contain.  Is this a nightly watchlist?  Are your messages time sensitive?  How long has the system been in use by you and what kind of returns have you seen?)</td>
+        <td><textarea cols="40" id="system_description" name="system[description]" rows="20"><%= unhtmlify(@system.description) %></textarea></td>  <td class="field-explanation">(as long as you want.  Be sure to describe how often you will be sending messages.  What these messages contain.  Is this a nightly watchlist?  Are your messages time sensitive?  How long has the system been in use by you and what kind of returns have you seen?)</td>
       </tr>
 
       <tr>

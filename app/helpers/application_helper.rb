@@ -25,8 +25,8 @@ module ApplicationHelper
     false
   end
 
-  def unhtmlify_description(description)
-    return description.gsub("<br />","\n") unless description.nil?
+  def unhtmlify(html)
+    return html.gsub("<br />","\n") unless html.nil?
     return ""
 
   end

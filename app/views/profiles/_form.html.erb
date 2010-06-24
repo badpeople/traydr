@@ -12,7 +12,8 @@
         <%= render :partial => 'image', :object => @profile %>
   <p>
     <%= f.label :personal_blurb %><br />
-    <%= f.text_area :personal_blurb %>
+
+    <textarea cols="80" id="profile_personal_blurb" name="profile[personal_blurb]" rows="20"><%= unhtmlify(@profile.personal_blurb) %></textarea>
   </p>
   <p>
     <%= f.label :blog %><br />
@@ -32,7 +33,8 @@
   </p>
   <p>
     <%= f.label :style_blurb %><br />
-    <%= f.text_area :style_blurb %>
+    <textarea cols="80" id="profile_style_blurb" name="profile[style_blurb]" rows="20"><%= unhtmlify(@profile.style_blurb) %></textarea>
+
   </p>
   <p><%= f.submit submit_button_name || "Submit" %></p>
 <% end %>

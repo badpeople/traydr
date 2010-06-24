@@ -52,14 +52,16 @@
 
       <p>
         <strong>About me:</strong>
-        <%= h @profile.personal_blurb %>
+        <%= content_tag(:span, @profile.personal_blurb )%>
+
       </p>
 
 
 
       <p>
         <strong>About my trading style:</strong>
-        <%= h @profile.style_blurb %>
+        <%= content_tag(:span, @profile.style_blurb )%>       
+
       </p></div>
   </div>
 </div>

@@ -76,7 +76,7 @@ a {
     margin-left:auto;
 	text-align: center;
     clear: both;
-    padding-bottom:56px;
+    padding-bottom:110px;
     width: 780px;
     height: 60px; /* Height of the footer */
 
@@ -427,6 +427,19 @@ hr
     -moz-border-radius-bottomright: 30px;
     -webkit-border-bottom-right-radius: 30px;
 }
+
+.footer-content > table
+{
+    margin-left: auto;
+    margin-right: auto;
+    /*padding-bottom: 48px;*/
+}
+
+.footer-content > table > tbody > tr > td
+{
+    padding: 12px;
+}
+
 
 .systems-container
 {
