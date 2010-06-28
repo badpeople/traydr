@@ -1,0 +1,7 @@
+kill -9 `cat log/workling_monitor.pid`
+kill -9 `cat log/workling0.pid`
+kill -9 `cat log/workling1.pid`
+kill -9 `cat log/workling2.pid`
+kill -9 `cat tmp/pids/server.pid`
+
+
