@@ -23,7 +23,9 @@
     <div> 
       <span class="preview-description" >   <%= excerpt(system.description, system.description[0..240], :radius=>2) %>
       </span>
-      <span class="preview-price"><%= price_display(system.price_email) %><span class="subtle">/month</span>
+      <span class="preview-price"><%= price_display(system.price_email) %><span class="subtle"><% if system.is_free? then %>
+    /month
+<% end %></span>
       </span>
     </div>
   </div>

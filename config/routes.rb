@@ -10,11 +10,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :subscriptions,:collection=>{:ajax_create=>[:get,:post],:order_completed =>[:get,:post],:order_done =>:get,:order_cancel=>:get} 
 
   map.resources :systems
-
+                                                
   map.resources :profiles
 
   map.contact 'contact', :controller => 'dashboard', :action => 'contact'
   map.contact 'disclaimer', :controller => 'dashboard', :action => 'disclaimer'
+  map.contact 'why_join', :controller => 'dashboard', :action => 'why_join'
+  map.contact 'join_us', :controller => 'dashboard', :action => 'why_join2'
 
   map.signup 'signup', :controller => 'users', :action => 'new'
   map.welcome 'welcome', :controller => 'users', :action => 'welcome'

@@ -41,5 +41,9 @@ class System < ActiveRecord::Base
     end
   end
 
+  def is_free?
+    return self.price_email > 0
+  end
+
 
 end

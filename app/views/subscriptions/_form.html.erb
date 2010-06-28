@@ -20,7 +20,12 @@
       </tr>
       <tr class="subscription-row">
         <td><span class="subscriptions-label"><span class="subscription-label">Price</span></span></td>
-        <td  align="right"><%= price_display(@system.price_email) %> / month </td>
+        <td  align="right"><%= price_display(@system.price_email) %>
+          <% if @system.is_free? then %>
+              / month
+          <% end %>
+
+        </td>
       </tr>
       <% if @system.price_email == 0 then %>
           <tr class="subscription-row">

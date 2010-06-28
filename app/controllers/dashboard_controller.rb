@@ -36,4 +36,14 @@ class DashboardController < ApplicationController
 
   end
 
+  def why_join
+    @content_for_title = "Why join?"
+
+  end
+
+  def why_join2
+    @content_for_title = "Why join?"
+
+  end
+
 end

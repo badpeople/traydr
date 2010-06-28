@@ -5,8 +5,8 @@ class Profile < ActiveRecord::Base
   before_save :htmlify
 
   def htmlify
-    self.personal_blurb =  personal_blurb.gsub("\n","<br />")
-    self.style_blurb= style_blurb.gsub("\n","<br />")
+    self.personal_blurb =  personal_blurb.gsub("\n","<br />") unless personal_blurb.nil?
+    self.style_blurb= style_blurb.gsub("\n","<br />") unless style_blurb.nil?
   end
   
 end
