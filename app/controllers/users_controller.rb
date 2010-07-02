@@ -85,7 +85,7 @@ class UsersController < ApplicationController
       @user.update_attributes(:confirmed=>true)
       flash[:notice] = "Email confirmed."
       session[:user_id] = @user.id
-      redirect_to root_url
+      redirect_to root_url + "?email_confirmed=true"
     else
       flash[:error] = "Could not find user for that code."
     end

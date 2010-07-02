@@ -21,7 +21,7 @@
     <br />
     <br />
 
-<p class="giant-link" style="text-align:center;" >  <%= link_to "Start>",{:controller=>"systems" },{:style=>"text-decoration:none;"}%>
+<p class="giant-link" style="text-align:center;" >  <span class="start-button"><%= link_to '', :controller=>'systems' %></span>
 </p></div></div>
 
 <div class="two-column-action" id="create-a-system" >
@@ -33,5 +33,5 @@
     <br />
     <br />
 
-  <p class="giant-link"><%= link_to "Start>",{:controller=>"systems",:action=>"new" },{:style=>"text-decoration:none;"}%></p></div>
+  <p class="giant-link"> <span class="start-button"><%= link_to '', :controller=>'systems',:action=>'create' %></span></p></div>
 </div>

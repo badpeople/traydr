@@ -492,6 +492,25 @@ hr
     vertical-align:top;
 }
 
+.start-button a {
+    float: right;
+    padding-right: 200px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+    background: url("/images/start_button.png") 0 0 no-repeat;
+    text-decoration: none;
+}
+
+.start-button a:hover {
+    background: url("/images/start_button_rollover.png") 0 0 no-repeat;
+}
+.subscriber-count
+{
+    vertical-align:top;
+}
+
 .username-label
 {
     vertical-align:bottom;
