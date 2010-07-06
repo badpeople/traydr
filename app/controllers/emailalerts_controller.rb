@@ -79,7 +79,7 @@ class EmailalertsController < ApplicationController
 
     if logged_in?
       system_id = params[:system_id]
-      system = System.find(:first, system_id)
+      system = System.find(system_id)
       if system.user.id == current_user.id
         return true
       end

@@ -117,6 +117,17 @@ class SubscriptionsController < ApplicationController
       if !subscriptions.nil? && subscriptions.size() == 1 then
         @subscription = subscriptions[0]
         @subscription.update_attributes(:status=>status_confirmed,:paypal_payer_email=>params[:payer_email],:paypal_subscr_id=>params[:subscr_id], :paypal_payer_id=>params[:payer_id])
+
+        begin
+          MailingsWorker.async_send_subscription_confirmation(:email=>@subscription.system.user.email,
+                                                              :system_name => @subscription.system.name,
+                                                              :system_id=>@system.id,
+                                                              :user_id=>@user.id)
+        rescue => e
+          logger.error "error generating subscription confirmed email via paypal callback"
+          logger.error e.inspect
+          logger.error e.backtrace
+        end
       elsif !subscriptions.nil? && subscriptions.size() > 1
         logger.error "more than one subscription was found for where system id = #{@system.id} and user id = #{@user.id}"
       else
@@ -131,7 +142,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def order_done
-    flash[:notice] = "Order compeleted and confirmed"
+    flash[:notice] = "Order completed and confirmed"
      redirect_to :action => "index"
   end
 
