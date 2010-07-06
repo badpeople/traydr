@@ -13,7 +13,7 @@ class EmailalertsController < ApplicationController
   
   def new
     @emailalert = Emailalert.new
-    system_id = params[:system_id]
+    system_id = params[:system_id] 
     if system_id.nil?
       raise "system_id param cannot be empty"
     end
@@ -78,7 +78,7 @@ class EmailalertsController < ApplicationController
   def own_system
 
     if logged_in?
-      system_id = params[:system_id]
+      system_id = params[:system_id] || params[:emailalert][:system_id]
       system = System.find(system_id)
       if system.user.id == current_user.id
         return true
