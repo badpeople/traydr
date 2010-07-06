@@ -7,6 +7,23 @@ class UserMailer < ActionMailer::Base
     content_type "text/html"
     
   end
-  
+
+  def subscription_confirmed(options)
+    begin
+      logger.debug "sending email to #{options[:email]}"
+      recipients options[:email]
+      from APP_CONFIG[:email_server_outgoing_alert_from_un] + "@" + APP_CONFIG[:email_server_outgoing_from_hostname]
+      subject "TRAYDR.COM: You have a new subscriber to '#{options[:system_name]}'"
+      content_type "text/html"
+
+      body render_message("subscription_confirmation",:options=>options)
+
+    rescue => e
+       logger.error "error generating subscription confirmed email"
+      logger.error e.inspect
+      logger.error e.backtrace
+    end
+
+  end
 
 end

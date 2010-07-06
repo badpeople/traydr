@@ -10,5 +10,15 @@ class MailingsWorker < Workling::Base
       puts e.backtrace
     end
   end
+
+  def send_subscription_confirmation(options)
+    begin
+      puts "sending subscription notification: #{options.to_yaml}"
+      UserMailer.deliver_subscription_confirmed(options)
+    rescue => e
+      puts e.inspect
+      puts e.backtrace
+    end
+  end
   
 end

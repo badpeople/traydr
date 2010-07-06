@@ -1,5 +1,7 @@
 class EmailalertsController < ApplicationController
 
+  before_filter :own_system, :only=>[:new,:create]
+
   def index
     @emailalerts = Emailalert.all
   end
@@ -70,6 +72,21 @@ class EmailalertsController < ApplicationController
       logger.debug "sending email for subscription=#{email_package[:email]}"
       mailer.deliver_email(email_package, title, body)
     end
+  end
+
+  private
+  def own_system
+
+    if logged_in?
+      system_id = params[:system_id]
+      system = System.find(:first, system_id)
+      if system.user.id == current_user.id
+        return true
+      end
+    end
+    flash[:error] = "Sorry, you don't have permission to do that."
+    store_target_location
+    redirect_to login_url
   end
 
 end

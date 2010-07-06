@@ -1,0 +1,20 @@
+<html>
+<body>
+<table align="center" width="90%" border="1">
+  <tr>
+    <td>
+      You have a new subscriber to <%= @options[:system_name] %><br />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to 'View ' + @options[:system_name], :host=>APP_CONFIG[:domain],:controller=>"systems",:action=>"administer", :id=>@options[:system_id] %>
+      <br/><%= link_to 'View subscriber\'s profile', :host=>APP_CONFIG[:domain], :controller=>"profiles",:action=>"show_by_user",:id=>@options[:user_id] %>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+</body>
+</html>

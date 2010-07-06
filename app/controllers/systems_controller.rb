@@ -1,6 +1,6 @@
 class SystemsController < ApplicationController
   before_filter :login_required, :only=>[:new,:create,:mine]
-  before_filter :own_or_admin, :only=>[:edit,:update,:destroy]
+  before_filter :own_or_admin, :only=>[:edit,:update,:destroy,:administer]
 
   def index
     page = params[:page] || 1

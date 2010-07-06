@@ -39,7 +39,11 @@ class SubscriptionsController < ApplicationController
         @subscription.to_email = current_user.email
         @subscription.system = @system
         if @subscription.save
-          flash[:notice] = "Successfully created subscription.  Remember, add \"alert@traydr.com\" to your email contacts.  As this will be the email that you receive alerts from." 
+          flash[:notice] = "Successfully created subscription.  Remember, add \"alert@traydr.com\" to your email contacts.  As this will be the email that you receive alerts from."
+          MailingsWorker.async_send_subscription_confirmation(:email=>@subscription.system.user.email,
+                                                              :system_name => @subscription.system.name,
+                                                              :system_id=>@system.id,
+                                                              :user_id=>current_user.id)          
           redirect_to @system
         else
           render :action => 'new'
