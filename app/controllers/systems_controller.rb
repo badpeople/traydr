@@ -3,6 +3,9 @@ class SystemsController < ApplicationController
   before_filter :own_or_admin, :only=>[:edit,:update,:destroy,:administer]
 
   def index
+    @keywords = default_keywords
+    @description = default_description
+
     page = params[:page] || 1
     if params[:filter] == "price-low-high"
       @systems = System.paginate(:all,:order=>"price_email",:page=>page)
@@ -35,7 +38,9 @@ class SystemsController < ApplicationController
   def show
     @system = System.find(params[:id])
     @content_for_title = @system.name
+    @keywords = default_keywords + @system.name
     @reviews = Review.find_all_by_system_id(@system.id)
+    @description = default_description + @system.description 
 
     if logged_in?
       results = Subscription.find_by_sql(find_users_subscription(current_user.id,params[:id]))

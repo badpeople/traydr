@@ -26,4 +26,22 @@ class UserMailer < ActionMailer::Base
 
   end
 
+  def review_creation(options)
+    begin
+      logger.debug "sending REVIEW CREATED email to #{options[:email]}"
+      recipients options[:email]
+      from APP_CONFIG[:email_server_outgoing_alert_from_un] + "@" + APP_CONFIG[:email_server_outgoing_from_hostname]
+      subject "TRAYDR.COM: You have a new review for '#{options[:system_name]}'"
+      content_type "text/html"
+
+      body render_message("review_creation",:options=>options)
+
+    rescue => e
+      logger.error "error generating review creation email"
+      logger.error e.inspect
+      logger.error e.backtrace
+    end
+
+  end
+
 end

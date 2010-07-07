@@ -56,5 +56,13 @@ module Traydr
   def find_users_subscription(user_id, system_id)
     "select * from subscriptions where user_id = #{user_id} AND system_id = #{system_id}"
   end
+
+  def default_keywords
+    "financial newsletter marketplace trading systems "
+  end
+
+  def default_description
+    "traydr.com - the financial newsletter marketplace : "
+  end
 end
 

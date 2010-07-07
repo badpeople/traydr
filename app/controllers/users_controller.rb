@@ -51,6 +51,9 @@ class UsersController < ApplicationController
 
   def welcome
     @content_for_title = "Welcome"
+   @keywords = default_keywords
+
+       @description = default_description 
 
   end
 

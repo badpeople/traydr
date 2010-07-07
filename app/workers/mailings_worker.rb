@@ -20,5 +20,15 @@ class MailingsWorker < Workling::Base
       puts e.backtrace
     end
   end
+
+  def send_review_created(options)
+    begin
+      puts "sending review created: #{options.to_yaml}"
+      UserMailer.deliver_review_creation(options)
+    rescue => e
+      puts e.inspect
+      puts e.backtrace
+    end
+  end
   
 end

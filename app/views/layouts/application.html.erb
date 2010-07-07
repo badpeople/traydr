@@ -8,6 +8,13 @@
   <%= javascript_include_tag 'prototype' %>
   <%= yield(:head) %>
   <meta name="google-site-verification" content="kui4WAKIsypkbzsNGB47GklhJ0ZqUXf-9IcisHzp96w" />
+  <% if !@keywords.nil? then %>
+      <meta name="keywords" content="<%= @keywords  %>"
+  <% end %>
+  <% if !@description.nil? then %>
+      <meta name="description" content="<%= @description  %>"
+  <% end %>
+
   <link rel="icon"
       type="image/png"
       href="http://<%= APP_CONFIG[:domain] %>/images/favicon.png">

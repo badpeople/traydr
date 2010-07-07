@@ -1,0 +1,25 @@
+<html>
+<body>
+<table align="center" width="90%" border="1">
+  <tr>
+    <td>
+      You have a new review for '<%= @options[:system_name] %>'<br />
+      <br />
+     <b> <%= @options[:reviewer_username] %></b> says: <%=  @options[:stars] %>
+      <br />
+      "<%= @options[:text] %>"
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to 'View the review ' , :host=>APP_CONFIG[:domain],:controller=>"reviews",:action=>"show", :id=>@options[:review_id] %>
+      <br /><%= link_to 'View ' + @options[:system_name], :host=>APP_CONFIG[:domain],:controller=>"systems",:action=>"administer", :id=>@options[:system_id] %>
+      <br/><%= link_to 'View subscriber\'s profile', :host=>APP_CONFIG[:domain], :controller=>"profiles",:action=>"show_by_user",:id=>@options[:reviewer_id] %>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+</body>
+</html>

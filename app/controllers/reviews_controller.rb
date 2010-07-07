@@ -24,6 +24,19 @@ class ReviewsController < ApplicationController
     @review.system = subscription.system
     if @review.save
       flash[:notice] = "Successfully created review."
+
+      # send the system creator an email that a review has been created
+      MailingsWorker.async_send_review_created(
+              :email=>subscription.system.user.email,
+              :system_name=>subscription.system.name,
+              :system_id=>subscription.system.id,
+              :reviewer_username=>current_user.username,
+              :reviewer_id=>current_user.id,
+              :text=>@review.text,
+              :review_id=>@review.id,
+              :stars=>@review.primary_rating
+              )
+
       redirect_to @review
     else
       render :action => 'new'
