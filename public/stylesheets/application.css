@@ -537,3 +537,15 @@ div.system-divider hr {
     font-size: 1.3em;
     float: none;
 }
+
+h1
+{
+    display: inline;
+    font-size: 1.9em;
+    font-weight: normal;    
+}
+
+.welcome-title
+{
+    word-spacing: -1px;
+}

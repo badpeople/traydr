@@ -2,7 +2,7 @@
     <%= render :partial=>'/dashboard/info',:locals=>{:text=>"You are viewing your system.  Use the link in the address bar to publicize your system to the world."} %>
 <% end %>
 
-<p class="title"><%= @system.name %>
+<p class="title"><h1><%= @system.name %></h1>
   <% average_rating = @system.average_rating() %>
 
   <% if !average_rating.nil? then %>

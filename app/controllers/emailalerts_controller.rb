@@ -8,7 +8,6 @@ class EmailalertsController < ApplicationController
   
   def show
     @emailalert = Emailalert.find(params[:id])
-    
   end
   
   def new
@@ -17,7 +16,7 @@ class EmailalertsController < ApplicationController
     if system_id.nil?
       raise "system_id param cannot be empty"
     end
-    @system = System.find(:first, system_id)
+    @system = System.find(system_id)
   end
   
   def create
