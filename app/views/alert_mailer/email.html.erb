@@ -1,29 +1,18 @@
- <html>
- <body>
- <table align="center" width="90%" border="1">
-   <tr>
-     <td>
-       System: <%= link_to @email_package[:system_name],:controller=>"systems",:id=>@email_package[:system_id],:action=>"show",:host=>@hostname %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-       Title: <%= @title %>
+<% render :layout => 'email_template' do %>
+<span style="font-size:1.1em ">    System: <span style="font-size:1.3em"><%= link_to @email_package[:system_name],:controller=>"systems",:id=>@email_package[:system_id],:action=>"show",:host=>@hostname %></span>
+</span>    <br />
+     Title: <%= @title %>
+    <br />
+    <br />
 
-     </td>
-   </tr>
-   <tr>
-     <td>
-       <%= @body  %>
+    <%= @body  %>
 
-     </td>
-   </tr>
- </table>
- 
- <br />
- <a href="<%= "http://#{@hostname}/subscriptions/show/#{@email_package[:subscription_id]}" %>">View this subscription</a><br />
+    <br />
+    <br />
+    <br />
+
+    <a href="<%= "http://#{@hostname}/subscriptions/show/#{@email_package[:subscription_id]}" %>">View this subscription</a><br />
  <a href="<%= "http://#{@hostname}/systems/show/#{@email_package[:system_id]}" %>">View this system</a><br />
- <a href="<%= "http://#{@hostname}/disclaimer" %>">Disclaimer</a>
 
- </body>
- </html>
+<% end %>
+

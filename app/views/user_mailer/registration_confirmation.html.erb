@@ -1,8 +1,15 @@
-Welcome <%= @user.username %>, to traydr.com
+<% render :layout => '/alert_mailer/email_template' do %>
 
-<br />
-<%= link_to "Click here to confirm your email.",:host=>@hostname,:controller=>"users",:action=>"confirm_email",:code=>@user.conf_code %>
+    Welcome <%= @user.username %>, to traydr.com
 
-Please add this email, as well as "alert@traydr.com" to your whitelist as you will be receiving alerts from that address.
+    <br/>
+    <br/>
+    <span style="font-size:1.4em">    <%= link_to "Click here to confirm your email.", :host=>@hostname, :controller=>"users", :action=>"confirm_email", :code=>@user.conf_code %>
+</span>    <br/>
+    <br/>
 
-if you received this email in error.  Do not worry, just ignore it.
+    Please add this email, as well as "alert@traydr.com" to your whitelist as you will be receiving alerts from that address.
+
+    if you received this email in error.  Do not worry, just ignore it.
+
+<% end %>
