@@ -23,6 +23,13 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
     end
   end
 
+@posts.each do |post|
+    xml.url do
+      xml.loc 'http://' + APP_CONFIG[:domain] + '/blog/' + post.path
+      xml.lastmod post.updated_at.to_date
+    end
+  end
+
   xml.url do
     xml.loc "http://#{APP_CONFIG[:domain]}/welcome"
     xml.lastmod DateTime.now.to_date
@@ -37,6 +44,11 @@ xml.urlset "xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
   xml.url do
     xml.loc "http://#{APP_CONFIG[:domain]}/contact"
+    xml.lastmod DateTime.now.to_date
+  end
+
+  xml.url do
+    xml.loc "http://#{APP_CONFIG[:domain]}/blog"
     xml.lastmod DateTime.now.to_date
   end
 

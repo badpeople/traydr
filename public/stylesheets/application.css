@@ -222,6 +222,7 @@ a {
 
 #profile-image
 {
+    vertical-align: top;
     padding-right: 15px;
 width: 120px;
 }
