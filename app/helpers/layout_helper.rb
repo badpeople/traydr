@@ -27,4 +27,8 @@ module LayoutHelper
   def format_date(date)
     date.strftime("%m/%d/%Y")
   end
+
+  def post_full_path(post)
+    "/blog/" + post.path
+  end
 end

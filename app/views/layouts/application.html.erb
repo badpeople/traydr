@@ -51,7 +51,7 @@
           <% end %>
 
           <%= link_to 'Systems', :controller=>'systems' %>
-          <%= link_to 'Contact','/contact' %>
+          <%= link_to 'Blog','/blog' %>
           <%= link_to 'FAQ','/faq' %>
     </span>
 
@@ -81,21 +81,21 @@
   </div>
 
   <div id="footer">
-    <br/>
-
     <div class="footer-content">
-      <br/>
       <table>
         <tr>
 
-          <td>Copyright 2010 traydr.com
-            <br/>
-            <%= link_to "Contact", "/contact" %> | <%= link_to "FAQ", "/faq" %>
-            | <%= link_to "Disclaimer", "/disclaimer" %>   </td>
-          <td><a href="http://twitter.com/traydrDOTcom">      <%= image_tag "twitter.png" %>
-          </a></td>
-           <td><a href="http://www.facebook.com/pages/traydrcom/128569067170966">      <%= image_tag "facebook.png",:style=>"height: 48px;" %>
-          </a></td>
+          <td class="footer-content-left">
+            <a href="http://twitter.com/traydrDOTcom">Twitter</a><br/>
+            <a href="http://www.facebook.com/pages/traydrcom/128569067170966"> Facebook</a><br/>
+            (C) 2010 traydr.com<br />
+           </td>
+          <td class="footer-content-right">
+            <%= link_to 'Contact','/contact' %>    <br/>
+            <%= link_to 'Blog','/blog' %> <br/>
+            <%= link_to 'FAQ','/faq' %>         <br/>
+            <%= link_to 'Dislcaimer','/disclaimer' %>                <br/>
+          </td>
         </tr>
       </table>
     </div>

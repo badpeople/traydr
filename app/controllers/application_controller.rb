@@ -3,6 +3,14 @@
 
 class ApplicationController < ActionController::Base
 
+  def admin_authed
+    ret = !current_user.nil? && current_user.admin?
+    logger.debug "here is the bool " + ret.to_s
+    if !ret
+      redirect_to :status=>404
+    end
+  end
+
   include Authentication
   include Traydr
   include TraydrLogging

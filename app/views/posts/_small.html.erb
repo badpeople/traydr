@@ -1,0 +1,22 @@
+<table class="post-table">
+  <tr>
+    <td class="persona-card" valign="top">
+      <div><a href="<%= url_for(:controller=>"profiles",:action=>"show",:id=>small.user.profile) %>"><%= small_profile_image(small.user.profile) %>
+        <br/>
+        <%= small.user.profile.first_name + " " +small.user.profile.last_name %>
+        <br/>
+        <%= small.user.username %>
+        <br/>
+        <%= format_date(small.created_at) %>
+      </a></div>
+    </td>
+  <td align="left" valign="top"><div class="post-title-body-container"><h1><%=  link_to small.title, post_full_path(small), :class=>"small-blog-title" %></h1>  <br />
+
+<br />
+
+<%= small.text %></div>
+
+<br />
+<br />
+<br /></td>
+</table>

@@ -1,4 +1,4 @@
-<div style="float:left;width:75%"><p style="font-size:1.3em;font-weight:bold;"> Welcome to the dashboard, <%= @user.username %></p>
+<table><tr><td style="float:left;width:75%"><p style="font-size:1.3em;font-weight:bold;"> Welcome to the dashboard, <%= @user.username %></p>
 
 
   <p class="big-link"><%= link_to 'View my followed systems', :controller=>'subscriptions' %></p>
@@ -11,7 +11,7 @@
 
   <% if @systems.size() > 0 then %>
       <p>Systems I have created (<%= @systems.size() %>)</p>
-      
+
       <p>
         <% for system in @systems %>
             <%= link_to system.name, :controller=>'systems', :action=>'administer', :id =>system %><br/>
@@ -20,12 +20,13 @@
   <% end %>
 
   <br />
-  Create a system 
+  Create a system
       <%= link_to "here.", :controller=>"systems", :action=>"new" %>
-</div>
-<div style="float:right;width:25%;">
+</td>
+<td style="vertical-align:top;text-align:right;width:25%;">
   <%= link_to "Edit my Account settings",:controller=>"users",:action=>"edit",:id=>@user.id %> <br />
   <%= link_to "View my About me page",:controller=>"profiles",:action=>"show",:id=>@user.profile.id %> <br />
   <%= link_to "Edit my About me page",:controller=>"profiles",:action=>"edit",:id=>@user.profile.id %> <br />
   <p style="padding-top:40px;">Got Questions? -> <%=link_to "FAQ",:controller=>"dashboard",:action=>"faq" %></p>
-</div>
+</td></tr>
+</table>

@@ -11,28 +11,34 @@
 
 <br />
 
+<table id="welcome-actions">
+<tr>
+  <td>
+    <div class="two-column-action">
+      <div class="inner-emph"><span class="content-title">Find a system to follow</span>
+        <br/>
+      <span>
+        Systems range from market makers sending out top newsletters to free newsletters just starting out.
+      </span>
+            <br/>
+        <br/>
 
-
-<div class="two-column-action" id="find-a-system">
-  <div class="inner-emph"><span class="content-title">Find a system to follow</span>
-  <br />
-  <span>
-    Systems range from market makers sending out top newsletters to free newsletters just starting out.
-  </span>
-    <br />
-    <br />
-
-<p class="giant-link" style="text-align:center;" >  <span class="start-button"><%= link_to '', :controller=>'systems' %></span>
-</p></div></div>
-
-<div class="two-column-action" id="create-a-system" >
-  <div class="inner-emph"><span class="content-title">Create a system to follow</span>
-  <br />
+        <p class="giant-link" >
+          <span class="start-button"><%= link_to '', :controller=>'systems' %></span>
+        </p></div>
+    </div>
+  </td>
+<td>
+  <div class="two-column-action"><div class="inner-emph"><span class="content-title">Create a system to follow</span>
+    <br/>
   <span>
     Monetize your market knowledge and trading ability or just get your name out there with a free system
   </span>
-    <br />
-    <br />
+    <br/>
+    <br/>
 
-  <p class="giant-link"> <span class="start-button"><%= link_to '', :controller=>'systems',:action=>'create' %></span></p></div>
-</div>
+    <p class="giant-link"><span class="start-button"><%= link_to '', :controller=>'systems', :action=>'create' %></span>
+    </p></div></div>
+</td>
+</tr>
+</table>

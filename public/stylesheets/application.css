@@ -49,9 +49,10 @@ a {
     width: 780px;
     border-left: dotted;
     border-right: dotted;
+    border-bottom: dotted;
     border-left-width:thin;
     border-right-width:thin;
-
+    border-bottom-width:thin;
 
 }
 
@@ -64,8 +65,8 @@ a {
 }
 
 #header {
-    background: #000;
-    border-bottom: 0.8em solid #006400;
+    background: #333333;
+    border-bottom: 0.5em solid #006400;
     color: #fff;
     width: 100%;
 }
@@ -199,7 +200,7 @@ a {
 {
     vertical-align:middle;
     float: right;
-    margin-top: 28px;
+    margin-top: 14px;
     margin-right: 9px;
 }
 
@@ -222,15 +223,15 @@ a {
 #profile-image
 {
     padding-right: 15px;
-    float:left;
-
+width: 120px;
 }
 
 .profile-data
 {
+    vertical-align: top;
+    width:555px;
     padding-top: 15px;
     margin-left: 10px;
-    float:left;
 }
 
 .small-preview-container
@@ -298,6 +299,7 @@ a {
 .two-column-action
 {
     border-style: dashed;
+    padding-bottom: 25px;
 }
 
 #find-a-system
@@ -418,21 +420,43 @@ hr
 .footer-content
 {
     width: 100%;
-    color: whitesmoke;
+    color: gray;
     font-size:1.2em;
     padding-bottom: 24px;
-    background: gray;
+    /*background: gray;*/
     -moz-border-radius-bottomleft: 30px;
     -webkit-border-bottom-left-radius: 30px;
     -moz-border-radius-bottomright: 30px;
     -webkit-border-bottom-right-radius: 30px;
 }
 
+.footer-content-left
+{
+    text-align: left;
+}
+.footer-content-right
+{
+    text-align: right;
+    vertical-align: top;
+}
+
+.footer-content-left > a
+{
+    text-decoration:none;
+    color: gray;
+}
+.footer-content-right > a
+{
+    text-decoration:none;
+    color: gray;
+}
+
 .footer-content > table
 {
-    margin-left: auto;
-    margin-right: auto;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
     /*padding-bottom: 48px;*/
+    width: 100%;
 }
 
 .footer-content > table > tbody > tr > td
@@ -448,10 +472,11 @@ hr
 
 #logo a
 {
-    font: normal normal normal 5em/normal 'American Typewriter', 'Trebuchet MS', Verdana, sans-serif;
+    font: normal normal normal 3em/normal 'American Typewriter', 'Trebuchet MS', Verdana, sans-serif;
     font-family: 'American Typewriter', 'Trebuchet MS', Verdana, sans-serif;
     color: white;
     text-decoration:none;
+    padding-left: 12px;
 }
 
 .subscription-label
@@ -548,4 +573,115 @@ h1
 .welcome-title
 {
     word-spacing: -1px;
+}
+
+.small-blog-title
+{
+    text-decoration: none;
+    color: black;
+}
+.small-blog-title a:hover
+{
+    color: gray;
+}
+
+.post-table
+{
+    width: 100%;
+    /*padding-bottom: 30px;*/
+}
+
+.post-title-body-container
+{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.persona-card
+{
+    width: 90px;
+
+}
+
+.persona-card > div > a {
+    color: black;
+    text-decoration: none;
+
+}
+.persona-card > div {
+    background-color: #ffebcd;
+    padding: 5px;
+    border: solid 1px #daa520;
+
+}
+
+.link-to-post > a
+{
+    border: 1px gray solid;
+    padding: 5px;
+
+
+}
+.link-to-post
+{
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 1.3em;
+}
+
+.post-container
+{
+    /*border-bottom: 1px solid #C7D3DD;*/
+    border-bottom: dotted;
+    border-bottom-width:thin;
+}
+
+.back-blog-link > a
+{
+    padding: 5px;
+    border: 1px gray solid;
+         
+}
+.back-blog-link
+{
+    
+    font-size: 1.3em;
+    margin-top: 25px;
+    text-align:center;
+}
+
+.blog-spacer
+{
+    padding-bottom: 30px;
+
+}
+
+.recent-posts
+{
+    padding-left: 8px;
+    vertical-align: top;
+    width: 160px;
+}
+.recent-posts > div
+{
+    padding-bottom: 8px;
+}
+
+.recent-posts-title
+{
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.subtle
+{
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+#welcome-actions >tbody > tr > td
+{
+    padding-left: 10px;
+    padding-right: 10px;
+
 }

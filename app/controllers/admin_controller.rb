@@ -16,11 +16,5 @@ class AdminController < ApplicationController
 
   end
 
-  def admin_authed
-    ret = !current_user.nil? && current_user.admin?
-    logger.debug "here is the bool " + ret.to_s
-    if !ret
-      redirect_to :status=>404
-    end
-  end
+  
 end

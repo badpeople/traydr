@@ -1,0 +1,26 @@
+
+<table><tr><td><% for post in @posts %>
+    <div class="post-container">
+      <%= render :partial=>"small", :object=>post %>
+      <div class="link-to-post">
+        <%= link_to 'View>>>', post_full_path(post) %>
+      </div>
+    </div>
+    <div class="blog-spacer" ></div>
+
+<% end %></td>
+<td class="recent-posts">
+    <div class="recent-posts-title">Recent Posts</div>
+    <% for post in @posts %>
+        <div>
+          <%= link_to excerpt(post.title, post.title[0..24], :radius=>2), post_full_path(post), :class=>"sidebar-blog-link" %>
+          <br/>
+          <span class="subtle"><%=  format_date(post.created_at) %></span>
+
+        </div>
+    <% end %>
+
+</td>
+
+</tr>
+</table>

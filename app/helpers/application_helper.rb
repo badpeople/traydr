@@ -5,6 +5,13 @@ module ApplicationHelper
       return image_tag("man_silhouette_medium.png",:width=>180)
     end
     return image_tag(profile.image_medium,:width=>180)
+    end
+
+  def small_profile_image(profile)
+    if profile.image_square.nil?
+      return image_tag("man_silhouette_medium.png",:width=>180)
+    end
+    image_tag(profile.image_small,:width=>90)
   end
 
   def profile_link(user)

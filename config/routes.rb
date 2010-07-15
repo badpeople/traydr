@@ -1,4 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+
+  map.connect 'blog/:year/:month/:title', :controller => 'posts', :action => 'show'
+
+  map.blog 'blog',:controller => 'posts',:action=>"index"
+
+  map.resources :posts
+
   map.resources :reviews
 
   map.resources :reviews
