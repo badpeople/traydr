@@ -4,7 +4,7 @@ address: 127.0.0.1
 log_file: log/mongrel.log
 port: "8000"
 cwd: /var/rails/traydr
-environment: development
+environment: production
 user: paul
 pid_file: /var/rails/traydr/tmp/mongrel.pid
 servers: 3
