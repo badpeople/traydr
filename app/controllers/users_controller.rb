@@ -40,13 +40,28 @@ class UsersController < ApplicationController
   end
 
   def home
-    if logged_in?
-      @user = current_user
-      @systems = System.find_all_by_user_id(current_user.id)
-      @content_for_title = "Dashboard"
+    # look if this site is one of SEO sites
+    domain = request.env["SERVER_NAME"]
+    if seo_site?(domain)
+      logger.debug "redirecting to SEO page, domain:#{domain}"
+      the_domain_map = domain_map[domain]
+      @title = the_domain_map[:title]
+       @google_analytics_code = the_domain_map[:google_analytics_code]
+       @google_webmaster_code = the_domain_map[:google_webmaster_code]
+      render :seo, :layout=>false
+
     else
-      redirect_to "/welcome"
+
+      if logged_in?
+        @user = current_user
+        @systems = System.find_all_by_user_id(current_user.id)
+        @content_for_title = "Dashboard"
+      else
+        redirect_to "/welcome"
+      end
+
     end
+
   end
 
   def welcome

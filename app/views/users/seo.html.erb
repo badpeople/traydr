@@ -1,0 +1,66 @@
+<html>
+<head>
+  <title><%= @title %></title>
+  <%= stylesheet_link_tag 'seo' %>
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '<%= @google_analytics_code %>']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  <meta name="google-site-verification" content="<%= @google_webmaster_code %>" />
+</head>
+<body>
+<div class="spacer"></div>
+
+<div id="container">
+
+  <div id="header">
+    <div class="header-text">
+     <h1> <%= @title %></h1>
+    </div>
+  </div>
+  <div id="content">
+
+   <strong> <span class="big-name">traydr.com,</span></strong> the financial newsletter marketplace.  They offer free or paid newsletters with subscriber reviews.
+    <br/>
+    <br/>
+    <div class="go-to-button">
+        <a href="http://traydr.com">Check em out >>></a>
+    </div>
+
+    <div class="content-entry"> The one place to find the full range of reviews for financial newsletters is
+      <a href="http://traydr.com">traydr.com</a>
+    </div>
+    <div class="spacer"></div>
+    <div class="content-entry"> Find a newsletter to follow <a href="http://traydr.com/systems">here</a>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="content-entry"> Have more questions? <a href="http://traydr.com/faq">Here's the FAQ</a>
+    </div>
+    <div class="spacer"></div>
+
+    <div class="content-entry"> Follow them on <a href="http://twitter.com/traydrDOTcom">twitter</a>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="content-entry"> Read their <a href="http://traydr.com/blog">blog</a>
+    </div>
+
+  </div>
+</div>
+<div id="footer">
+  
+</div>
+</body>
+</html>

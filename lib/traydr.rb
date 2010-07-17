@@ -64,5 +64,36 @@ module Traydr
   def default_description
     "traydr.com - the financial newsletter marketplace : "
   end
+
+  def seo_site?(hostname)
+      !domain_map[hostname].nil?
+  end
+
+  def domain_map
+    {
+            "financialnewsletterreviews.com" =>{
+                                                       :google_webmaster_code=>"sRqLZwvMgwgV8tSVeqBQz09Uk-ijEuV7HNbIdF6hjWg",
+                                                       :google_analytics_code=>"UA-10324101-5",
+                                                       :title=>"Financial Newsletter Reviews"
+            },
+            "freefinancialnewsletter.com" =>{:google_webmaster_code=>"UQCZ023HSC-bHq71nTAHCLQoP9HGiF-vorvAKciZMpw",
+                                                    :google_analytics_code=>"UA-10324101-6",
+                                                    :title=>"Free Financial Newsletters"
+            },
+            "topfinancialnewsletters.com" =>{:google_webmaster_code=>"bRUcg58iDuviCd8CfRE7W0urL5lzq5JKlfRwiJSGzL4",
+                                                    :google_analytics_code=>"UA-10324101-8",
+                                                    :title=>"Top Financial Newsletters"},
+            "financialnewsletterratings.com" =>{:google_webmaster_code=>"FA5G6_u_XN-Q0QJKmVLHM3JpWBKG05ad2TZW_vM_D8w",
+                                                       :google_analytics_code=>"UA-10324101-7",
+                                                       :title=>"Financial Newsletter Ratings"
+            },
+            "financialnewsletterrankings.com" =>{:google_webmaster_code=>"K9CmAdsE7UTu_oMY1FVSZZbzGkR1RfkU9wIax4fpJAg",
+                                                        :google_analytics_code=>"UA-10324101-9",
+                                                        :title=>"Financial Newsletter Rankings"
+            }
+    }
+
+  end
+
 end
 
