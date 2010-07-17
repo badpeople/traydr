@@ -41,7 +41,8 @@ class UsersController < ApplicationController
 
   def home
     # look if this site is one of SEO sites
-    domain = request.env["SERVER_NAME"]
+    domain = request.env["SERVER_NAME"].gsub("www.","")
+    logger.debug "domain:#{domain}"
     if seo_site?(domain)
       logger.debug "redirecting to SEO page, domain:#{domain}"
       the_domain_map = domain_map[domain]
