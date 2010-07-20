@@ -434,6 +434,8 @@ hr
 .footer-content-left
 {
     text-align: left;
+    vertical-align: top;
+    
 }
 .footer-content-right
 {

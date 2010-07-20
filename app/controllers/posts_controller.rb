@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @content_for_title = "Blog"
-    @posts = Post.find(:all,:order=>"created_at")
+    @posts = Post.find(:all,:order=>"created_at DESC",:limit=>10)
   end
   
   def show
@@ -59,7 +59,7 @@ class PostsController < ApplicationController
     
     # hyphenate title
     title = post.title
-    title = title.gsub("'","").gsub(",","")
+    title = title.gsub("'","").gsub(",","").gsub("?","").gsub(".","")
     words = title.split(" ")
     title =  words.join("-")
 
