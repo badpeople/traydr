@@ -1,14 +1,71 @@
+<span class="faq-container"><p align="center" class="faq-question">Welcome to traydr.com </p>
+
+If you are a member of an investment or trading forum for some time you have probably found them valuable.  A community allows you to
+share ideas, increase your knowledge, and improve your trading overall .  If you have been part of a online trading community for long
+enough you may have many people "following" you, asking you for advice, and generally finding your knowledge useful.
+
+<br/>
+<br/>
+
+You may even find yourself as one of the more knowledgeable members of the community, often putting in more knowledge than you get
+out.  What may not be evident is that<span style="font-weight:bold;color:black;"> you are actually working for someone else and you don't know it</span> when you contribute.  You are
+contributing content to a site but don't receive compensation for sharing your knowledge or expertise while the owners of the site
+receive traffic and ad revenue from your hard work.  They are making money from your expertise and you aren't seeing any of it.
+<br/>
+<br/>
+Traydr.com seeks to change that.  At traydr.com you get to set the price for what your expertise is worth.  Do you think those who profit from
+  your expertise are willing to spend $1 a month for access?  It's easy to see it.
+  We are providing the infrastructure for established traders
+  with a following ( or those who are
+trying to build one ) to let people subscribe and pay for messages and alerts sent by them.  It's a turnkey solution to your next
+  step and setup is simple:
+
+<br />
+           <br /><div style="padding-left:20px;padding-right:20px;">
+<span class="faq-list-header">1. sign up</span><br />
+
+<p class="sub-text"><a href="/signup">click here.</a> It's 100% free.</p>
+
+<br />
+
+<span class="faq-list-header">2. create a system</span><br/>
+<p class="sub-text"><%= link_to 'Click here to create a system.',:controller=>"systems",:action=>"new" %>  Give it a name, description
+  and price.  Not sure what price to give it? <a href="#what-price">Click here for some help.</a> </p>
+<br />
+
+<span class="faq-list-header">3. publicize your system</span> <br/>
+<p class="sub-text">
+  Time to market your system.  If you are a member of a online community, use the link to your system (usually
+  something like http://traydr.com/systems/123 ) in your message signature for message boards.  If you have a blog,
+  make a post about it.  If you have a twitter account, tweet it to you followers, post it on facebook, etc.
+</p>
+
+  <br/>
+  <br/>
+  Once your system is created it is available to be subscribed to.  Visitors to traydr.com will find it in our
+  <%= link_to 'list of systems',:controller=>"systems" %> and they can subscribe to it.  You will receive an email
+  everytime you have a new subscriber to the system.  When you are ready to send a message to your subscribers, just
+  login to your account and you should see a list of systems you have created.  Click the system you want to send an
+  email for, click "Create an alert".  Give it a title, this will be the title of the alert.  Give it a body, click
+  "Submit".  Everyone subscribed to that system will receive an email with the contents of that alert.
+
+           </div>
+
+<br/>
+
+<div class="faq-question" style="text-align: center;">Some frequently asked questions
+</div>
 
 <p class="faq-question">
 What is traydr.com?
 </p>
-traydr.com is place where people come to find trading systems to follow, and for people to publish their trading system.
+traydr.com is place where people come to find trading systems to follow and for people to publish their trading system.
 
 <p class="faq-question">
  Why should I join traydr.com?
 </p>
 
-There are many sites out there were successful financial personalities have a presence ( twitter, stocktwits, investorshub, kaching, covestor ) to name a few.  These sites are great at getting your name out there and some of them, like covestor or kaching, have the possibility of you monetizing your expertise by allowing people to invest alongside you.  Unfortunately they get to pick and choose who gets to do this.  You could be ineligible because you don't have enough followers, you trade stocks in too small of a market cap, you trade on foreign exchanges.  The problem is they are getting to decide whether you make money or not.  Here at traydr.com, it's entirely up to you.
+There are many sites out there where successful financial personalities have a presence ( twitter, stocktwits, investorshub, kaching, covestor ) to name a few.  These sites are great at getting your name out there and some of them, like covestor or kaching, have the possibility of you monetizing your expertise by allowing people to invest alongside you.  Unfortunately they get to pick and choose who gets to do this.  You could be ineligible because you don't have enough followers, you trade stocks in too small of a market cap, you trade on foreign exchanges.  The problem is they are getting to decide whether you make money or not.  Here at traydr.com, it's entirely up to you.
 <p class="faq-question">
 How does it work?
 </p>
@@ -27,20 +84,53 @@ You can set any price for your system.  For subscribers the first month is free,
 How does this compare to the other monetization options?
 </p>
 
-At places like kaching or covestor, you pull in a management fee minus whatever their site wants to take.  Usually this ends up being about 1%-2% of assets managed to you.  This works out that if you have over $1 million in assets under management (only a handful managers on those sites do) you get about $10,000 per year.  Making it pretty difficult to justify the costs.      On traydr.com, you set the price for what your skills are worth.  If you think your research is worth $10 a month, then you need less than 100 subscribers to make what the top grossing person on kaching is making right now.  Get a 1000 subscribers for your monthly $10 newsletter?  Well then you are pulling in six digits per year by doing what you are doing already.  How many people following you on twitter, on covestor, on stocktwits are willing to give up 2 lattes a month for quality financial research?
+At places like kaching or covestor, you pull in a management fee minus whatever their site wants to take.  Usually this ends up being about 1%-2% of assets managed to you.  This works out that if you have over $1 million in assets under management (only a handful managers on those sites do) you get about $10,000 per year.  Making it pretty difficult to justify the costs.
+  <br/>
+  <br/>
+  On traydr.com, you set the price for what your skills are worth.  If you think your research is worth $10 a month, then you need less than 100 subscribers to make what the top grossing person on kaching is making right now.  Get a 1000 subscribers for your monthly $10 newsletter?  Well then you are pulling in six digits per year by doing what you are doing already.  How many people following you on twitter, on covestor, on stocktwits are willing to give up 2 lattes a month for quality financial research?
 
 <p class="faq-question">
 Can I setup a free system?
 </p>
 
 Yes.  You can have a free system and it will cost you nothing.  There is no setup or maintenance fees, it's 100% free.
+<p class="faq-question">
+<a style="color: black;text-decoration:none;" name="what-price">What price should I give it?
+</a></p>
+
+This entirely depends on you.  If this is your first system and you haven't charged anybody yet for access to your trading
+expertise then you may want to make your system free to start.  This of course makes it easiest for people to subscribe
+  and get your alerts.  And allows you to also get the most reviews which will help your standing on traydr.com.  Once
+  you have established your system and you feel comfortable you can change your system to a pay system with a
+  nominal price like $1 or $3 a month.  And from there you can move on up to higher prices.
+
+  <br />
+  <br />
+  If you feel comfortable and you think you already have a loyal following then you can start out with a pay system and
+  see how many people are interested.
 
 
+
+<p class="faq-question">
+What are some strategies for getting more subscribers?</p>
+
+  Traydr.com is review based.  The better systems/newsletters get better reviews.  If the system is good and helps people
+  make money then people will review it positively.  If people see the system as a rip-off they won't rate it favorably.
+  If your system has a rating you will show up higher when visitors look for highly rated systems.
+  <br/>
+  <br/>
+  If you have a large following or an established presence on a forum or message board you should leverage that to get
+  people to subscribe.  Put a link to you system in your posting signature.  Put a link in your twitter profile or blog.
+  Make it part of you online presence.
+  <br/>
+  <br/>
+  Fill out your profile.  Visitors feel more confident about joining your system if they know more about you.  There
+  are places there for your trading style, more about you, and a place for you picture.
 
 <p class="faq-question">
 I have more questions</p>
 
 
-Try our <a href="/faq">FAQ</a> or <a href="/contact">contact us</a>.
-
+Try our <a href="/faq">general FAQ</a> or <a href="/contact">contact us</a>.
+</span>
 

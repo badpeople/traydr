@@ -5,11 +5,11 @@
   </p>
   <p>
     <%= f.label :title %><br />
-    <input type="text" name="emailalert[title]" size="100" />
+    <input type="text" name="emailalert[title]" size="80" />
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :cols=>80 %>
   </p>
     
   <p><%= f.submit "Submit" %></p>

@@ -375,7 +375,8 @@ hr
     margin-bottom: 8px;
     font-weight: bold;
     
-    font-size: 1.3em;    
+    font-size: 1.3em;
+    color: black;
 }
 
 .big-link
@@ -687,4 +688,21 @@ h1
     padding-left: 10px;
     padding-right: 10px;
 
+}
+
+.faq-list-header
+{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: black;
+}
+
+.faq-container
+{
+    color: gray;
+}
+
+.action-link
+{
+    font-size: 1.3em;
 }

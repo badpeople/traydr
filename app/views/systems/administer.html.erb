@@ -1,20 +1,31 @@
 <% title @system.name %>
+<table style="vertical-align:top;" width="100%">
+  <tr>
+    <td><br/>
+      <br/>
 
-<br />
+      <div class="sub-title">Actions:</div>
 
-Create Alerts:  
-<%= link_to 'Email',:controller=>'emailalerts',:action=>'new',:system_id=>@system.id %>
+      <br/>
+      <%= link_to 'Create an alert', {:controller=>'emailalerts', :action=>'new', :system_id=>@system.id}, :class=>"action-link" %>
 
-<br />
-<br />
+      <br/>
+      <br/>
 
-<%= link_to "Edit this system",:action=>"edit",:id=>@system %>
+      <%= link_to "Show this system", {:action=>"show", :id=>@system}, :class=>"action-link" %>
+      <br/>
+      <br/>
+
+      <%= link_to "Edit this system", {:action=>"edit", :id=>@system}, :class=>"action-link" %>
 
 
-<br />
-<br />
-<p>People subscribed (<%= @system.subscriptions.size %>)</p>
-<ul>
-<% for subscription in @system.subscriptions %>
-     <li><%= subscription.user.username %> on <%= format_date(subscription.created_at) %> <br /></li>
-<% end %></ul>
+      <br/>
+      <br/></td>
+    <td><div style="float:right;"><p>People subscribed (<%= @system.subscriptions.size %>)</p>
+      <ul>
+        <% for subscription in @system.subscriptions %>
+            <li><%= subscription.user.username %> on <%= format_date(subscription.created_at) %> <br/></li>
+        <% end %></ul></div>
+    </td>
+  </tr>
+</table>
