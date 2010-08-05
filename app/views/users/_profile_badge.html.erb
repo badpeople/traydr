@@ -1,6 +1,6 @@
 <% user = profile_badge %>
 <a href="<%= url_for(:controller=>"profiles",:action=>"show",:id=>user.profile) %>">
   <table style="float:left;" class="tiny-persona-card"><tr><td><%= tiny_profile_image(user.profile) %></td>
-      <td>  <%= user.profile.first_name + " " +user.profile.last_name %><br/>
+      <td>  <%= !user.profile.first_name.nil? && !user.profile.first_name.nil? ? user.profile.first_name + " " +user.profile.last_name : ""%><br/>
         <%= user.username %></td></tr></table>
       </a>
