@@ -505,9 +505,7 @@ hr
 .subscribe-button a {
     float: right;
     padding-right: 200px;
-    padding-left: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 40px;
     color: white;
     background: url("/images/subscribe_button.png") 0 0 no-repeat;
     text-decoration: none;
@@ -683,6 +681,12 @@ h1
     font-size: 0.9em;
 }
 
+.semi-subtle
+{
+    color: #666666;
+    font-size: 0.9em;
+}
+
 #welcome-actions >tbody > tr > td
 {
     padding-left: 10px;
@@ -705,4 +709,42 @@ h1
 .action-link
 {
     font-size: 1.3em;
+}
+
+.tiny-persona-card >tbody > tr > td
+{
+    vertical-align: top;
+    
+}
+
+.tiny-persona-card {
+    background-color: #ffebcd;
+    padding: 3px;
+    border: solid 1px #daa520;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+.price-container
+{
+     background-color: #add8e6;
+    padding: 3px;
+    border: solid 1px #00008b;
+    text-align: right;
+    width: 110px;
+   
+    
+}
+.price-number
+{
+     font-weight: bolder;
+    font-size:  1.3em;
+    font: italic;
+    font-style: italic;
+}
+
+.system-title
+{
+    font-weight: bold;
+    font-size: 2.4em;
 }

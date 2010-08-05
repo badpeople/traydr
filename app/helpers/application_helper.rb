@@ -9,9 +9,17 @@ module ApplicationHelper
 
   def small_profile_image(profile)
     if profile.image_square.nil?
-      return image_tag("man_silhouette_medium.png",:width=>180)
+      return image_tag("man_silhouette_medium.png",:width=>90)
     end
     image_tag(profile.image_small,:width=>90)
+  end
+
+  def tiny_profile_image(profile)
+    width = 60
+    if profile.image_square.nil?
+      return image_tag("man_silhouette_medium.png",:width=>width)
+    end
+    image_tag(profile.image_small,:width=>width)
   end
 
   def profile_link(user)

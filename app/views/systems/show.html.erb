@@ -2,39 +2,41 @@
     <%= render :partial=>'/dashboard/info',:locals=>{:text=>"You are viewing your system.  Use the link in the address bar to publicize your system to the world."} %>
 <% end %>
 
-<p class="title"><h1><%= @system.name %></h1>
-  <% average_rating = @system.average_rating() %>
+<table style="padding-bottom:12px;width:100%;">
+  <tr><span class="title"><td><h1 class="system-title"><%= @system.name %></h1></td>
+  <td style="width: 130px;">
+    <% average_rating = @system.average_rating() %>
 
-  <% if !average_rating.nil? then %>
-      <%= render :partial=>"reviews/star_rating", :locals=>{:rating=>average_rating, :size=>"small-img"} %>
-  <% end %>
-</p>
+    <% if !average_rating.nil? then %>
+        <%= render :partial=>"reviews/star_rating", :locals=>{:rating=>average_rating, :size=>"small-img"} %>
+    <% end %></td>
+  <td class="price-container">
+    <span class="price-number"><%= h price_display @system.price_email %></span>
+    <span class="semi-subtle">
+      <% if @system.is_free? then %>
+    /month
+<% end %></span>
+  </td>
+</span></tr>
+</table>
+  <%= render :partial=>"/users/profile_badge", :object=>@system.user %>
 
-from <%= profile_link(@system.user) %>
+  <%= content_tag(:span, @system.description) %>
 
 
-<span class="giant-link" style="text-decoration:none;float:right;margin-right:20px;">
+<div class="giant-link" style="width:100%;text-align:right;float:left;clear:left;text-decoration:none;margin-right:20px;">
   <% if current_user.nil? || current_user.id != @system.user.id && @subscription.nil? then %>
 
       <span class="subscribe-button"><%= link_to '', :controller=>'subscriptions', :action=>'new', :system=>@system.id %></span>
   <% elsif !@subscription.nil? %>
-      <%= link_to 'Edit Your Subscription', :controller=>'subscriptions', :action=>'edit', :id=>@subscription %>
+      <%= link_to 'View Your Subscription', :controller=>'subscriptions', :action=>'edit', :id=>@subscription %>
       <br />
-         <%= link_to "Review it", {:controller=>"reviews",:action=>'new',:subscription=>@subscription}, :style=>"font-size:0.8em;" %>
+         <%= link_to "Review it", {:controller=>"reviews",:action=>'new',:subscription=>@subscription} %>
   <% end %>
-</span>
+</div>
 
 <br />
 <br />
-
-<p>
-  <strong>Description:</strong> <br /><br />
-  <%= content_tag(:span, @system.description )%>       
-</p>
-<p>
-  <strong>Email Price:</strong>
-  <%=h price_display @system.price_email %>
-</p>
 
 <hr class="review-seperate">
 <p style="font-size:1.2em;" align="center"><%= @reviews.size() %> Reviews for <%= @system.name %></p>
@@ -42,11 +44,6 @@ from <%= profile_link(@system.user) %>
 
 <%= render :partial=>"/reviews/medium", :collection=>@reviews %>
 
-
-<br />
-<br />
-
-<%= image_tag("subscribe_button_rollover.png",:style=>"display:none;") %>
 
 
 
