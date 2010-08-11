@@ -9,25 +9,31 @@
         Find me on:<br />
 
         <% if !isEmptyString?(@profile.blog) %>
-           <span class="profile-link"><%= link_to "Blog",@profile.blog %></span>
+           <span class="profile-link"><%= link_to "Blog",fix_url(@profile.blog) %></span>
         <% end %>
       </p>
 
     <p>
       <% if !isEmptyString?(@profile.covestor) %>
-          <span class="profile-link"><%= link_to "Covestor", @profile.covestor %></span>
+          <span class="profile-link"><%= link_to "Covestor", fix_url(@profile.covestor) %></span>
+      <% end %>
+    </p>
+
+    <p>
+      <% if !isEmptyString?(@profile.twitter)%>
+          <span class="profile-link"><%= link_to "Twitter", fix_url(@profile.twitter) %></span>
       <% end %>
     </p>
 
     <p>
       <% if !isEmptyString?(@profile.stocktwits)%>
-          <span class="profile-link"><%= link_to "StockTwits", @profile.stocktwits %></span>
+          <span class="profile-link"><%= link_to "StockTwits", fix_url(@profile.stocktwits) %></span>
       <% end %>
     </p>
 
     <p>
       <% if !isEmptyString?(@profile.kaching) %>
-          <span class="profile-link"><%= link_to "kaChing", @profile.kaching %></span>
+          <span class="profile-link"><%= link_to "kaChing", fix_url(@profile.kaching) %></span>
       <% end %>
     </p>
 

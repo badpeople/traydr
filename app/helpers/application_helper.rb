@@ -60,4 +60,14 @@ module ApplicationHelper
   def status_unconfirmed
     "UNCONFIRMED"
   end
+
+  def fix_url(url)
+    if !url.match(/(^$)|(^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$)/ix)
+      if url.match(/^www.+\.[a-z]{2,5}/ix)
+        return "http://#{url}"
+      end  
+
+    end
+    url
+  end
 end
